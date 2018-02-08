@@ -17,6 +17,6 @@ class Index extends Controller {
     }
 
     public function home() {
-    	return view();
+    	return $this->fetch();
     }
 }
