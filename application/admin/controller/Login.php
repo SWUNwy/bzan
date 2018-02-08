@@ -8,11 +8,13 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\admin\contorller;
+namespace app\admin\controller;
 
-use think\Contorller;
+use think\Controller;
 
-class Login extends Contorller {
+class Login extends Controller {
 
-	public function index() {}
+	public function index() {
+		return $this->fetch();
+	}
 }

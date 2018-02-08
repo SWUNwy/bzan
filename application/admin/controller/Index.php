@@ -9,7 +9,9 @@
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
+
 use think\Controller;
+
 class Index extends Controller {
     
     public function index() {
