@@ -17,4 +17,8 @@ class Login extends Controller {
 	public function index() {
 		return $this->fetch();
 	}
+
+	public function logout() {
+		$this->redirect();
+	}
 }

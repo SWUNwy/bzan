@@ -19,6 +19,11 @@ class Index extends Controller {
     }
 
     public function home() {
+    	$data = [
+    		'date' => date('Y-m-d H:i:s'),
+    		'ip'   => request()->ip(),
+    	];
+    	$this->assign('data', $data);
     	return $this->fetch();
     }
 }
