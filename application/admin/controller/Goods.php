@@ -18,4 +18,7 @@ class Goods extends Controller {
 		return $this->fetch();
 	}
 	
+	public function goods_list() {
+		return $this->fetch();
+	}
 }
