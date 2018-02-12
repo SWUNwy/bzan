@@ -8,14 +8,10 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\admin\controller;
+namespace app\admin\model;
 
-use think\Controller;
-
-class Brand extends Controller {
-
-	public function index() {
-		return $this->fetch();
-	}
-
-}
+use think\Model;
+/**
+ * 公用模型类
+ */
+class Common extends Model {}
