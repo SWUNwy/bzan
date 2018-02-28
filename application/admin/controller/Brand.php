@@ -18,4 +18,11 @@ class Brand extends Controller {
 		return $this->fetch();
 	}
 
+	/**
+	 * [addBrand description]
+	 * 添加品牌
+	 */
+	public function addBrand() {
+		return $this->fetch();
+	}
 }
