@@ -14,7 +14,7 @@ use think\Controller;
 
 class Brand extends Controller {
 
-	public function brand_list() {
+	public function index() {
 		return $this->fetch();
 	}
 
