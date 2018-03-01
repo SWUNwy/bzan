@@ -12,19 +12,12 @@ namespace app\admin\controller;
 
 use think\Controller;
 /**
- * 商品品牌管理
+ * 商城图片、广告管理
  */
-class Brand extends Controller {
+class Picture extends Controller {
 
 	public function index() {
 		return $this->fetch();
 	}
-
-	/**
-	 * [addBrand description]
-	 * 添加品牌
-	 */
-	public function addBrand() {
-		return $this->fetch();
-	}
+	
 }

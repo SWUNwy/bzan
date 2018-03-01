@@ -12,19 +12,11 @@ namespace app\admin\controller;
 
 use think\Controller;
 /**
- * 商品品牌管理
+ * 系统支付管理
  */
-class Brand extends Controller {
+class Payment extends Controller {
 
 	public function index() {
-		return $this->fetch();
-	}
-
-	/**
-	 * [addBrand description]
-	 * 添加品牌
-	 */
-	public function addBrand() {
 		return $this->fetch();
 	}
 }
