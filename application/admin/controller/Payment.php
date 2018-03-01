@@ -19,4 +19,8 @@ class Payment extends Controller {
 	public function index() {
 		return $this->fetch();
 	}
+
+	public function config() {
+		return $this->fetch();
+	}
 }

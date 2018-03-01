@@ -20,4 +20,12 @@ class Picture extends Controller {
 		return $this->fetch();
 	}
 	
+	public function ads_category() {
+		return $this->fetch();
+	}
+
+	public function ads_list() {
+		return $this->fetch();
+	}
+
 }
