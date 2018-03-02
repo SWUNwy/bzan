@@ -18,4 +18,12 @@ class Member extends Controller {
 		return $this->fetch();
 	}
 
+	public function member_grade() {
+		return $this->fetch();
+	}
+
+	public function member_detail() {
+		return $this->fetch();
+	}
+
 }
