@@ -21,4 +21,14 @@ class Article extends Controller {
 		return $this->fetch();
 	}
 
+	public function category() {
+		return $this->fetch();
+	}
+
+	public function article_add() {
+		return $this->fetch();
+	}
+
+
+
 }
