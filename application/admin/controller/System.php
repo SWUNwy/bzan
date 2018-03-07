@@ -11,10 +11,20 @@
 namespace app\admin\controller;
 
 use think\Controller;
+/**
+ * 系统控制器
+ */
+class System extends Controller {
 
-class Message extends Controller {
+	/**
+	 * index
+	 */
+	public function index(){
+	    
+	   	return $this->fetch();
+	}
 
-	public function index() {
+	public function log() {
 		return $this->fetch();
 	}
 
