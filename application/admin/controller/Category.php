@@ -18,7 +18,7 @@ class Category extends Controller {
 		return $this->fetch();
 	}
 
-	public function add() {
+	public function category_add() {
 		return $this->fetch();
 	}
 }
