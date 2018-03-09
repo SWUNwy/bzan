@@ -21,4 +21,8 @@ class Goods extends Controller {
 	public function goods_list() {
 		return $this->fetch();
 	}
+
+	public function goods_add() {
+		return $this->fetch();
+	}
 }
