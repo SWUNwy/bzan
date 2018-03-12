@@ -38,7 +38,7 @@
 	<li class=" clearfix"><label class="label_name">品牌图片：</label>
 	<div class="demo l_f">
 		<div class="logobox">
-		<input type="file" name="">
+		<input type="file" name="brand_pic" id="brand_pic">
 		</div>
 	</div> 
 	<div class="prompt"><p>图片大小<b>120px*60px</b>图片大小小于5MB,</p><p>支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
@@ -89,7 +89,9 @@
 		return true;
 	}
 }
+//下拉框交换JQuery
 
+</script>
 <script type="text/javascript">
 function updateProgress(file) {
 	$('.progress-box .progress-bar > div').css('width', parseInt(file.percentUploaded) + '%');
