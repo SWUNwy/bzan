@@ -11,10 +11,13 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use app\admin\model\Common;
 /**
  * 商品品牌管理
  */
 class Brand extends Controller {
+
+	protected $brand = 'brand';
 
 	public function index() {
 		return $this->fetch();
@@ -35,5 +38,7 @@ class Brand extends Controller {
 	public function brand_detail() {
 		return $this->fetch();
 	}
-	
+
+	public function delete() {}
+
 }

@@ -11,6 +11,7 @@
 namespace app\admin\model;
 
 use think\Model;
+use think\Db;
 /**
  * 公用模型类
  */
