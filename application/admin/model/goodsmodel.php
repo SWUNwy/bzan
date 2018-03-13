@@ -11,7 +11,18 @@
 namespace app\admin\model;
 
 use think\Model;
+use think\Db;
 
-class Member extends Model {
+class GoodsModel extends Model {
 	
+	protected $table = 'goods';
+
+	/**
+	 * [goods_list description]
+	 * @return [type] [description]
+	 */
+	public function goods_list() {
+		$arr = Db::name($this->table)->select();
+		return $arr;
+	}
 }

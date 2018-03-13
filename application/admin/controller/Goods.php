@@ -11,12 +11,10 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\View;
+use app\admin\model\goodsmodel;
 
 class Goods extends Controller {
-
-	public function index() {
-		return $this->fetch();
-	}
 	
 	public function goods_list() {
 		return $this->fetch();

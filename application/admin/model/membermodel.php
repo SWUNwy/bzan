@@ -8,10 +8,10 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\admn\model;
+namespace app\admin\model;
 
 use think\Model;
 
-class Order extends Model {
+class MemberModel extends Model {
 	
 }
