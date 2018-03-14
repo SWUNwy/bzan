@@ -33,30 +33,6 @@
             <div class="state-overview clearfix">
                 <div class="col-lg-3 col-sm-6">
                     <section class="panel">
-                        <a href="#" title="商城会员">
-                            <div class="symbol terques">
-                                <i class="icon-user"></i>
-                            </div>
-                            <div class="value">
-                                <h1>34522</h1>
-                                <p>商城用户</p>
-                            </div>
-                        </a>
-                    </section>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <section class="panel">
-                        <div class="symbol red">
-                            <i class="icon-tags"></i>
-                        </div>
-                        <div class="value">
-                            <h1>140</h1>
-                            <p>分销记录</p>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <section class="panel">
                         <div class="symbol yellow">
                             <i class="icon-shopping-cart"></i>
                         </div>
@@ -77,6 +53,19 @@
                         </div>
                     </section>
                 </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <a href="#" title="商城会员">
+                            <div class="symbol terques">
+                                <i class="icon-user"></i>
+                            </div>
+                            <div class="value">
+                                <h1>34522</h1>
+                                <p>商城用户</p>
+                            </div>
+                        </a>
+                    </section>
+                </div>
             </div>
             <!--实时交易记录-->
             <div class="clearfix">
@@ -87,7 +76,7 @@
                             <tr><td class="name">未处理订单：</td><td class="munber"><a href="#">0</a>&nbsp;个</td></tr>
                             <tr><td class="name">待发货订单：</td><td class="munber"><a href="#">10</a>&nbsp;个</td></tr>
                             <tr><td class="name">待结算订单：</td><td class="munber"><a href="#">13</a>&nbsp;个</td></tr>
-                            <tr><td class="name">已成交订单数：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
+                            <tr><td class="name">成交订单数：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
                         </tbody>
                     </table>
                 </div> 
@@ -101,18 +90,8 @@
                             <tr><td class="name">下架商品：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
                         </tbody>
                     </table>
-                </div> 
-                <div class="Order_Statistics">
-                    <div class="title_name">会员登陆统计信息</div>
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr><td class="name">注册会员登陆：</td><td class="munber"><a href="#">3240</a>&nbsp;次</td></tr>
-                            <tr><td class="name">新浪会员登陆：</td><td class="munber"><a href="#">1130</a>&nbsp;次</td></tr>
-                            <tr><td class="name">支付宝登陆：</td><td class="munber"><a href="#">1130</a>&nbsp;次</td></tr>
-                        </tbody>
-                    </table>
-                </div> 
-                <div class="news_style">
+                </div>
+<!--                 <div class="news_style">
                     <div class="title_name">最新消息</div>
                     <ul class="list">
                         <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
@@ -121,37 +100,33 @@
                         <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
                         <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
                     </ul>
-                </div> 
+                </div>  -->
             </div>
             <!--记录-->
             <div class="clearfix">
                 <div class="home_btn">
                     <div>
-                        <a href="picture-add.html"  title="添加商品" class="btn  btn-info btn-sm no-radius">
+                        <a href="{:url('goods/goods_add')}"  title="添加商品" class="btn  btn-info btn-sm no-radius">
                             <i class="bigger-200"><img src="__PUBLIC__/admin/images/icon-addp.png" /></i>
                             <h5 class="margin-top">添加商品</h5>
                         </a>
-                        <a href="Category_Manage.html"  title="产品分类" class="btn  btn-primary btn-sm no-radius">
+                        <a href="{:url('category/index')}"  title="产品分类" class="btn  btn-primary btn-sm no-radius">
                             <i class="bigger-200"><img src="__PUBLIC__/admin/images/icon-cpgl.png" /></i>
                             <h5 class="margin-top">产品分类</h5>
                         </a>
-                        <a href="admin_info.html"  title="个人信息" class="btn  btn-success btn-sm no-radius">
+                        <a href="{:url('admin/admin_info')}"  title="个人信息" class="btn  btn-success btn-sm no-radius">
                             <i class="bigger-200"><img src="__PUBLIC__/admin/images/icon-grxx.png" /></i>
                             <h5 class="margin-top">个人信息</h5>
                         </a>
-                        <a href="Systems.html"  title="系统设置" class="btn  btn-info btn-sm no-radius">
+                        <a href="{:url('system/index')}"  title="系统设置" class="btn  btn-info btn-sm no-radius">
                             <i class="bigger-200"><img src="__PUBLIC__/admin/images/xtsz.png" /></i>
                             <h5 class="margin-top">系统设置</h5>
                         </a>
-                        <a href="Order_handling.html"  title="商品订单" class="btn  btn-purple btn-sm no-radius">
+                        <a href="{:url('order/index')}"  title="商品订单" class="btn  btn-purple btn-sm no-radius">
                             <i class="bigger-200"><img src="__PUBLIC__/admin/images/icon-gwcc.png" /></i>
                             <h5 class="margin-top">商品订单</h5>
                         </a>
-                        <a href="picture-add.html"  title="添加广告" class="btn  btn-pink btn-sm no-radius">
-                            <i class="bigger-200"><img src="__PUBLIC__/admin/images/icon-ad.png" /></i>
-                            <h5 class="margin-top">添加广告</h5>
-                        </a>
-                        <a href="article_add.html"  title="添加文章" class="btn  btn-info btn-sm no-radius">
+                        <a href="{:url('article/article_add')}"  title="添加文章" class="btn  btn-info btn-sm no-radius">
                             <i class="bigger-200"><img src="__PUBLIC__/admin/images/icon-addwz.png" /></i>
                             <h5 class="margin-top">添加文章</h5>
                         </a>
