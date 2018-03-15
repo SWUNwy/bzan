@@ -8,29 +8,23 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\admin\controller;
+namespace app\admin\model;
 
-use think\Controller;
-use app\admin\model\systemModel;
-/**
- * 系统控制器
- */
-class System extends Controller {
+use think\Model;
+use think\Db;
+
+class systemModel extends Model {
+
+	protected $table = 'system';
 
 	/**
-	 * index
+	 * [sysInfo description]
+	 * @return [type] [description]
 	 */
-	public function index(){
-	    $data = new systemModel();
-	    $data = $data->sysInfo();
-	    $this->assign('data',$data);
-	   	return $this->fetch();
-	}
-
-	public function sys_save() {}
-
-	public function log() {
-		return $this->fetch();
+	public function sysInfo() {
+		$db = Db::name($this->table);
+		$data = $db->find();
+		return $data;  
 	}
 
 }
