@@ -23,12 +23,12 @@ class System extends Controller {
 	 */
 	public function index(){
 	    $data = new systemModel();
-	    $data = $data->sysInfo();
+	    $data = $data->systemInfo();
 	    $this->assign('data',$data);
 	   	return $this->fetch();
 	}
 
-	public function saveInfo() {
+	public function updateInfo() {
 		$file = request()->file('icon_url');
 		$path = ROOT_PATH . 'public' . DS .'admin/uploads/system';
 		$icon_info = $file->validate(['size'=>2048000,'ext'=>'jpg,png,gif'])->move($path);
@@ -39,16 +39,23 @@ class System extends Controller {
             // 上传失败获取错误信息
             echo $file->getError();
         }
-		$sys_info = [
+        $id = input('id');
+		$data = [
 			'title' 	=> input('title'),
 			'meta' 		=> input('meta'),
 			'keyword'	=> input('keyword'),
 			'icp'		=> input('icp'),
-			'Copyright'	=> input('copyright'),
+			'copyright'	=> input('copyright'),
 			'icon_url'	=> $icon_url,
 		];
-		$sys_info = new systemModel();
-		$result = $sys_info->sysInfoSave();
+		$systemModel = new systemModel();
+		$result = $systemModel->updateInfo($data,$id);
+		if ($result) {
+			$this->success('更新成功!');
+		} else {
+			$this->error('更新失败!');
+		}
+
 	}
 
 	public function log() {
