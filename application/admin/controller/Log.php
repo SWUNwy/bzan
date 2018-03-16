@@ -16,4 +16,8 @@ use think\Controller;
  * 系统操作日志
  * @author wyecho
  */
-class Log extends Controller {}
+class Log extends Controller {
+
+	public function logBehavior() {}
+
+}
