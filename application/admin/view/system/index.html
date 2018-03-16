@@ -36,7 +36,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <form action="{:url('system/sys_save')}" method="post">
+                    <form action="{:url('system/saveInfo')}" enctype="multipart/form-data" method="post">
                     <div id="home" class="tab-pane active">
                         <div class="form-group"><label class="col-sm-1 control-label no-padding-right" for="form-field-1"><i>*</i>网站名称： </label>
                             <div class="col-sm-9"><input type="text" id="title" name="title" placeholder="控制在25个字、50个字节以内" value="{$data.title}" class="col-xs-10 "></div>
