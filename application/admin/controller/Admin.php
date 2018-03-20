@@ -11,6 +11,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use app\admin\model\adminModel;
 /**
  * 管理员控制器
  */
@@ -41,6 +42,9 @@ class Admin extends Controller {
 			'role_id'	=> input('role_id'),
 			'remarks'	=> input('remarks'),
 		];
+		$add = new adminModel();
+		$result = $add->adminAdd($data);
+		var_dump($result);
 	}
 
 }
