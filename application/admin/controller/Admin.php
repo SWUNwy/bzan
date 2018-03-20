@@ -32,4 +32,9 @@ class Admin extends Controller {
 		return $this->fetch();
 	}
 
+	public function adminAdd() {
+		$data  = [];
+		echo "ok";
+	}
+
 }
