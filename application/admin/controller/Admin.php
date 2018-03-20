@@ -33,8 +33,14 @@ class Admin extends Controller {
 	}
 
 	public function adminAdd() {
-		$data  = [];
-		echo "ok";
+		$data  = [
+			'name'	=> input('name'),
+			'pwd'	=> input('password'),
+			'tell'	=> input('tell'),
+			'email'	=> input('email'),
+			'role_id'	=> input('role_id'),
+			'remarks'	=> input('remarks'),
+		];
 	}
 
 }
