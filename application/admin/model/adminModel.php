@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\amdin\model;
+namespace app\admin\model;
 
 use think\Model;
 use think\Db;
@@ -17,9 +17,19 @@ class adminModel extends Model {
 
 	protected $table = 'admin';
 
+	public function adminList() {
+		$db = Db::name($this->table);
+		$list = $db->select();
+		if ($list) {
+			return $list;
+		} else {
+			return false;
+		}
+	}
+
 	public function adminAdd($data) {
 		$db = Db::name($this->table);
-		$result = $db->add($data);
+		$result = $db->insert($data);
 		if ($result) {
 			return $result;
 		} else {
