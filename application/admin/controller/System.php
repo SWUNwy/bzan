@@ -47,6 +47,7 @@ class System extends Controller {
 			'icp'		=> input('icp'),
 			'copyright'	=> input('copyright'),
 			'icon_url'	=> $icon_url,
+			'last_time'	=> date('Y-m-d H:i:s'),
 		];
 		$systemModel = new systemModel();
 		$result = $systemModel->updateInfo($data,$id);
