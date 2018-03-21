@@ -29,8 +29,10 @@ class Admin extends Controller {
 		return $this->fetch();
 	}
 
-	public function admin_info() {
-		return $this->fetch();
+	public function adminInfo() {
+		$id = input('id');
+		var_dump($id);
+		// return $this->fetch();
 	}
 
 	public function auth_list() {
