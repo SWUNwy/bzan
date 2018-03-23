@@ -25,6 +25,8 @@ class Admin extends Controller {
 	public function admin_list() {
 		$data = new adminModel();
 		$list = $data->adminList();
+		$num = count($list);
+		$this->assign('num',$num);
 		$this->assign('list',$list);
 		return $this->fetch();
 	}
