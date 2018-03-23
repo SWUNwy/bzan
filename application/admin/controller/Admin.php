@@ -63,4 +63,8 @@ class Admin extends Controller {
 		}
 	}
 
+	public function adminEdit() {
+		echo "ok";
+	}
+
 }
