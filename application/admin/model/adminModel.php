@@ -27,11 +27,31 @@ class adminModel extends Model {
 		}
 	}
 
+	/**
+	 * [adminAdd description]    新增管理员数据
+	 * @param  [type] $data [description]    新增数据内容
+	 * @return [type]       [description]    返回操作结果
+	 */
 	public function adminAdd($data) {
 		$db = Db::name($this->table);
 		$result = $db->insert($data);
 		if ($result) {
 			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * [adminInfo description]    管理员详细信息查询
+	 * @param  [type] $id [description]    查询Id
+	 * @return [type]     [description]    返回查询结果
+	 */
+	public function adminInfo($id) {
+		$db = Db::name($this->table);
+		$data = $db->find($id);
+		if ($data) {
+			return $data;
 		} else {
 			return false;
 		}

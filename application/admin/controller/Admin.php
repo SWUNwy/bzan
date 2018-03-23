@@ -25,16 +25,19 @@ class Admin extends Controller {
 	public function admin_list() {
 		$data = new adminModel();
 		$list = $data->adminList();
-		$num = count($list);
-		$this->assign('num',$num);
+		$allNum = count($list);
+		$this->assign('allNum',$allNum);
 		$this->assign('list',$list);
 		return $this->fetch();
 	}
 
 	public function adminInfo() {
 		$id = input('id');
-		var_dump($id);
-		// return $this->fetch();
+		$info = new adminModel();
+		$info = $info->adminInfo($id);
+		var_dump($info);
+		$this->assign('info',$info);
+		return $this->fetch();
 	}
 
 	public function auth_list() {

@@ -30,12 +30,12 @@
   <div class="administrator">
        <div class="d_Confirm_Order_style">
     <div class="search_style">
-     
+<!--      
       <ul class="search_content clearfix">
        <li><label class="l_f">管理员名称</label><input name="" type="text"  class="text_add" placeholder=""  style=" width:400px"/></li>
        <li><label class="l_f">添加时间</label><input class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
        <li style="width:90px;"><button type="button" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
-      </ul>
+      </ul> -->
     </div>
     <!--操作-->
      <div class="border clearfix">
@@ -43,7 +43,7 @@
         <a href="javascript:ovid()" id="administrator_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加管理员</a>
         <!-- <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a> -->
        </span>
-       <span class="r_f">共：<b>5</b>人</span>
+       <span class="r_f">共：<b>{$allNum}</b>人</span>
      </div>
      <!--管理员列表-->
      <div class="clearfix administrator_style" id="administrator">
@@ -55,8 +55,9 @@
          <div class="side_list"><div class="widget-header header-color-green2"><h4 class="lighter smaller">管理员分类列表</h4></div>
          <div class="widget-body">
            <ul class="b_P_Sort_list">
-           <li><i class="fa fa-users green"></i> <a href="#">全部管理员（{$num}）</a></li>
-            <li><i class="fa fa-users orange"></i> <a href="#">超级管理员（1）</a></li>
+           <li><i class="fa fa-users green"></i> <a href="#">全部管理员（{$allNum}）</a></li>
+            <li><i class="fa fa-users orange"></i> <a href="#">超级管理员（
+            ）</a></li>
             <li><i class="fa fa-users orange"></i> <a href="#">普通管理员（5）</a></li>
             <li><i class="fa fa-users orange"></i> <a href="#">产品编辑管理员（4）</a></li>
            </ul>
