@@ -35,7 +35,6 @@ class Admin extends Controller {
 		$id = input('id');
 		$info = new adminModel();
 		$info = $info->adminInfo($id);
-		var_dump($info);
 		$this->assign('info',$info);
 		return $this->fetch();
 	}
