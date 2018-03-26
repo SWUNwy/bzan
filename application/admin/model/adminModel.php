@@ -57,4 +57,40 @@ class adminModel extends Model {
 		}
 	}
 
+	/**
+	 * [delete description]    删除管理员
+	 * @param  [type] $id [description]    管理员id
+	 * @return [type]     [description]    操作结果
+	 */
+	public function adminDelete($id) {
+		$db = Db::name($this->table);
+		$result = $db->delete($id);
+		if ($result) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+
+	public function adminStatus($id,$data) {
+		$db = Db::name($this->table);
+		switch ($data) {
+			case '1':
+			$result = $db->where(['id'=>$id])
+						 ->update(['status'=>0]);
+				return $result;
+				break;
+			case '0':
+			$result = $db->where(['id'=>$id])
+						 ->update(['status'=>1]);
+				return $result;
+				break;
+			default:
+			return false;
+		}
+
+	}
+
+
 }

@@ -30,8 +30,8 @@
                 <div class="type_title">管理员信息 </div>
 
                 <div class="xinxi">
-                    <form adction="{:url('admin/adminEdit')}" method="post">
-                        <input type="hidden" value="{$info.name}">
+                    <form action="{:url('admin/adminEdit')}" method="post">
+                        <input type="hidden" id="id" name="id" value="{$info.id}">
                             <div class="form-group">
                                 <label class="form-label"><span class="c-red">*</span>登录名：</label>
                                 <div class="formControls">
@@ -75,7 +75,7 @@
                                 <div class="col-sm-9" > <span>{$info.add_time}</span></div>
                             </div>
                             <div class="Button_operation clearfix">
-                                <input class="btn btn-danger radius" type="submit" name="修改信息"></input>           
+                                <input class="btn btn-danger radius" type="submit" value="&nbsp;&nbsp;修改信息&nbsp;&nbsp;"></input>           
                             </div>
                     </form>
                 </div>

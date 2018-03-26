@@ -68,4 +68,28 @@ class Admin extends Controller {
 		var_dump($id);
 	}
 
+	public function adminDelete() {
+		$id = input('id');
+		$delete = new adminModel();
+		$result = $delete->adminDelete($id);
+		if ($result) {
+			$this->success('删除成功!');
+		} else {
+			$this->error('删除失败!');
+		}
+	}
+
+	public function adminStatus() {
+		$id = input('id');
+		$status = input('status');
+		// var_dump($status);
+		// die();
+		$stop = new adminModel();
+		$result = $stop->adminStatus($id,$status);
+		if ($result) {
+			$this->success('操作成功!');
+		} else {
+			$this->error('操作失败!');
+		}
+	}
 }
