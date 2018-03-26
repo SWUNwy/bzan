@@ -64,7 +64,8 @@ class Admin extends Controller {
 	}
 
 	public function adminEdit() {
-		echo "ok";
+		$id = input('id');
+		var_dump($id);
 	}
 
 }
