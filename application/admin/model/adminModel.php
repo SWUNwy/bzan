@@ -58,7 +58,7 @@ class adminModel extends Model {
 	}
 
 	/**
-	 * [delete description]    删除管理员
+	 * [adminDelete description]    删除管理员
 	 * @param  [type] $id [description]    管理员id
 	 * @return [type]     [description]    操作结果
 	 */
