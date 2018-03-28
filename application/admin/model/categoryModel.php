@@ -8,21 +8,23 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\admin\controller;
+namespace app\admin\model;
 
-use think\Controller;
-use app\admin\model\categoryModel;
+use think\Model;
+use think\Db;
 
-class Category extends Controller {
+class categoryModel extends Model {
 
-	public function index() {
-		$dataList = new categoryModel();
-		$list = $dataList->categoryList();
-		var_dump($list);
-		return $this->fetch();
+	protected $table = 'category';
+
+	public function categoryList() {
+
+		$data = Db::name($this->table)->select();
+		if ($data) {
+			return $data;
+		} else {
+			return false;
+		}
 	}
 
-	public function category_add() {
-		return $this->fetch();
-	}
 }
