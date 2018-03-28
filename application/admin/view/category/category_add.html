@@ -9,8 +9,8 @@
         <link href="__PUBLIC__/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="__PUBLIC__/admin/css/style.css"/>       
         <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/ace.min.css" />
-        <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/font-awesome.min.css" />
-        <link href="__PUBLIC__/admin/Widget/icheck/icheck.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="__PUBLIC__/Admin/assets/css/ace.min.css" />
+        <link rel="stylesheet"  href="__PUBLIC__/admin/Widget/icheck/icheck.css" type="text/css" />
         <!--[if IE 7]>
             <link rel="stylesheet" href="__PUBLIC__/admin/assets/css/font-awesome-ie7.min.css" />
         <![endif]-->
@@ -19,6 +19,7 @@
         <![endif]-->
         <script src="__PUBLIC__/admin/js/jquery-1.9.1.min.js"></script>
         <script src="__PUBLIC__/admin/assets/js/bootstrap.min.js"></script>
+        
         <title>添加产品分类</title>
     </head>
 <body>
@@ -44,6 +45,19 @@
                     </div>
                 </div>
                 <div class="Operate_cont clearfix">
+                    <label class="form-label"><span class="c-red">*</span>上级分类：</label>
+                    <div class="formControls ">
+                        <span class="select-box" style="width:150px;">
+                            <select class="select" name="category_id" size="1">
+                                <option value="0">一级分类</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                            </select>
+                        </span> 
+                    </div>
+                </div>
+                <div class="Operate_cont clearfix">
                     <label class="form-label">备注：</label>
                     <div class="formControls">
                         <textarea name="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this, 100)"></textarea>
@@ -59,11 +73,6 @@
         </div>
     </div> 
 </div>
-<script type="text/javascript" src="__PUBLIC__/admin/Widget/icheck/jquery.icheck.min.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/Widget/Validform/5.3.2/Validform.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/assets/layer/layer.js"></script>
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/admin/js/H-ui.admin.js"></script>
 <script type="text/javascript">
     $(function () {
         $('.skin-minimal input').iCheck({
