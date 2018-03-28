@@ -46,7 +46,7 @@
                     <a href="{:url('category/categoryAdd')}" title="添加商品" class="btn btn-warning Order_form"><i class="icon-plus"></i>添加分类</a>
                     <a href="javascript:ovid()" class="btn btn-danger"><i class="icon-trash"></i>批量删除</a>
                 </span>
-                <span class="r_f">共：<b>2</b>个分类</span>
+                <span class="r_f">共：<b>{$count}</b>个分类</span>
             </div>
             <!--产品列表展示-->
             <div class="h_products_list clearfix" id="products_list">
@@ -92,7 +92,7 @@
                                 <td class="td-status"><span class="{$vo.status==1 ? 'label label-success' : 'radius label label-defaunt radius'}">{$vo.status==1 ? '已启用' : '已停用'}</span></td>
                                 <td class="td-manage">
                                     <a onClick="member_stop(this, '10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="icon-ok bigger-120"></i></a> 
-                                    <a title="编辑" onclick="member_edit('编辑', '', '4', '', '510')" href="{:url('category/edit',['id'=>$vo['category_id']])}"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
+                                    <a title="编辑"  href="{:url('category/categoryEdit',['id'=>$vo['category_id']])}"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
                                     <a title="删除" href="javascript:;"  onclick="member_del(this, '1')" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
                                 </td>
                             </tr>

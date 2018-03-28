@@ -18,7 +18,8 @@ class Category extends Controller {
 	public function index() {
 		$dataList = new categoryModel();
 		$list = $dataList->categoryList();
-		var_dump($list);
+		$count = count($list);
+		$this->assign('count',$count);
 		$this->assign('list',$list);
 		return $this->fetch();
 	}
@@ -26,4 +27,15 @@ class Category extends Controller {
 	public function categoryAdd() {
 		return $this->fetch();
 	}
+
+	public function categoryEdit() {
+		$id = input('id');
+		$data = new categoryModel();
+		$data = $data->categoryInfo($id);
+		$this->assign('data',$data);
+		return $this->fetch();
+	}
+
+	public function categorySave() {}
+
 }

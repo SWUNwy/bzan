@@ -17,6 +17,10 @@ class categoryModel extends Model {
 
 	protected $table = 'category';
 
+	/**
+	 * [categoryList description]    产品分类列表
+	 * @return [type] [description]
+	 */
 	public function categoryList() {
 
 		$data = Db::name($this->table)->select();
@@ -25,6 +29,20 @@ class categoryModel extends Model {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * [categoryInfo description]   获取指定分类数据
+	 * @param  [type] $id [description]   指定数据Id
+	 * @return [type]     [description]   返回查询结果
+	 */
+	public function categoryInfo($id) {
+		$data = Db::name($this->table)->find($id);
+		if ($data) {
+			return $data;
+		} else {
+			return false;
+		}		
 	}
 
 }
