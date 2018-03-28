@@ -18,6 +18,7 @@ class Category extends Controller {
 	public function index() {
 		$dataList = new categoryModel();
 		$list = $dataList->categoryList();
+		var_dump($list);
 		$this->assign('list',$list);
 		return $this->fetch();
 	}
