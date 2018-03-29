@@ -36,6 +36,44 @@ class Category extends Controller {
 		return $this->fetch();
 	}
 
-	public function categorySave() {}
+	public function categoryInfoAdd() {
+
+		$data = [
+			'category_name' => input('category_name'),
+			'top' => input('top'),
+			'status' => input('status'),
+			'sort_id' => input('sort_id'),
+			'parent_id' => input('parent_id'),
+			'category_desc' => input('category_desc'),
+			'create_time' => date('Y-m-d H:i:s'),
+		];
+		$infoAdd = new categoryModel();
+		$result = $infoAdd->categoryInfoAdd($data);
+		if ($result) {
+		 	$this->success('success!',url('category/index'));
+		 } else {
+		 	$this->error('error!');
+		 }
+	}
+
+	public function categoryInfoEdit() {
+		$id = input('id');
+		$data = [
+			'category_name' => input('category_name'),
+			'top' => input('top'),
+			'status' => input('status'),
+			'sort_id' => input('sort_id'),
+			'parent_id' => input('parent_id'),
+			'category_desc' => input('category_desc'),
+			'modified_time' => date('Y-m-d H:i:s'),
+		];
+		$infoEdit = new categoryModel();
+		$result = $infoEdit->categoryInfoEdit($id,$data);
+		if ($result) {
+		 	$this->success('success!');
+		 } else {
+		 	$this->error('error!');
+		 }				
+	}
 
 }

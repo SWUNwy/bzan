@@ -37,12 +37,43 @@ class categoryModel extends Model {
 	 * @return [type]     [description]   返回查询结果
 	 */
 	public function categoryInfo($id) {
-		$data = Db::name($this->table)->find($id);
+		$data = Db::name($this->table)
+				->where('category_id='.$id)
+				->find();
 		if ($data) {
 			return $data;
 		} else {
 			return false;
 		}		
+	}
+
+	public function categoryInfoAdd($data) {
+		$db = Db::name($this->table);
+		$result = $db->insert($data);
+	    if ($result) {
+	    	return true;
+	    } else {
+	    	return false;
+	    }
+	}
+
+	/**
+	 * [categorySave description]    分类数据保存:新增/编辑
+	 * @param  [type] $id   [description]    分类id
+	 * @param  [type] $data [description]    需要操作的数据
+	 * @return [type]       [description]    返回操作结果
+	 */
+	public function categoryInfoEdit($id,$data) {
+		$db = Db::name($this->table);
+		$result = $db
+				  ->where('category_id='.$id)
+				  ->update($data);
+	    if ($result) {
+	    	return true;
+	    } else {
+	    	return false;
+	    }
+
 	}
 
 }

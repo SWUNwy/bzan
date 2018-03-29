@@ -31,11 +31,11 @@
                 <a href="javascript:ovid()" class="btn  btn-success"><i class="icon-ok align-top bigger-125"></i>禁用该类型</a>
                 <a href="javascript:ovid()" class="btn  btn-danger"><i class="icon-trash   align-top bigger-125"></i>删除该类型</a>
             </div> -->
-            <form action="{:url('category/categorySave')}" method="post" class="form form-horizontal" id="form-user-add">
+            <form action="{:url('category/categoryInfoAdd')}" method="post">
                 <div class="Operate_cont clearfix">
                     <label class="form-label"><span class="c-red">*</span>分类名称：</label>
                     <div class="formControls ">
-                        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+                        <input type="text" class="input-text" value="" placeholder="" id="category_name" name="category_name">
                     </div>
                 </div>
                 <div class="Operate_cont clearfix">
@@ -53,7 +53,7 @@
                     <label class="form-label"><span class="c-red">*</span>状态：</label>
                     <div class="formControls ">
                         <span class="select-box" style="width:150px;">
-                            <select class="select" name="show" size="1">
+                            <select class="select" name="status" size="1">
                                 <option value="1">上线</option>
                                 <option value="0">停止</option>
                             </select>
@@ -63,7 +63,7 @@
                 <div class="Operate_cont clearfix">
                     <label class="form-label"><span class="c-red">*</span>排序：</label>
                     <div class="formControls ">
-                        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+                        <input type="text" class="input-text" value="" placeholder="" id="sort_id" name="sort_id">
                     </div>
                 </div>
                 <div class="Operate_cont clearfix">
@@ -82,7 +82,7 @@
                 <div class="Operate_cont clearfix">
                     <label class="form-label">备注：</label>
                     <div class="formControls">
-                        <textarea name="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this, 100)"></textarea>
+                        <textarea name="category_desc" id="category_desc" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this, 100)"></textarea>
                         <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
                     </div>
                 </div>
