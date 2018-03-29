@@ -50,14 +50,14 @@ class Category extends Controller {
 		$infoAdd = new categoryModel();
 		$result = $infoAdd->categoryInfoAdd($data);
 		if ($result) {
-		 	$this->success('success!',url('category/index'));
+		 	$this->success('操作成功!','category/index');
 		 } else {
-		 	$this->error('error!');
+		 	$this->error('操作失败!');
 		 }
 	}
 
 	public function categoryInfoEdit() {
-		$id = input('id');
+		$id = input('category_id');
 		$data = [
 			'category_name' => input('category_name'),
 			'top' => input('top'),
@@ -70,9 +70,9 @@ class Category extends Controller {
 		$infoEdit = new categoryModel();
 		$result = $infoEdit->categoryInfoEdit($id,$data);
 		if ($result) {
-		 	$this->success('success!');
+		 	$this->success('操作成功!','category/index');
 		 } else {
-		 	$this->error('error!');
+		 	$this->error('操作失败!');
 		 }				
 	}
 

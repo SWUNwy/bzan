@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-03-26 16:31:29
+Date: 2018-03-29 17:34:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -177,15 +177,20 @@ CREATE TABLE `bz_category` (
   `meta_keywords` varchar(64) NOT NULL COMMENT '关键字',
   `top` int(9) NOT NULL COMMENT '是否顶部栏展示',
   `sort_id` int(16) NOT NULL COMMENT '排序Id',
-  `show` int(4) NOT NULL COMMENT '状态',
-  `create_time` datetime NOT NULL COMMENT '添加时间',
-  `modified_time` datetime NOT NULL COMMENT '最后修改时间',
+  `status` int(4) NOT NULL COMMENT '状态',
+  `create_time` datetime DEFAULT NULL COMMENT '添加时间',
+  `modified_time` datetime DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`category_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bz_category
 -- ----------------------------
+INSERT INTO `bz_category` VALUES ('1', '1', 'test', 'test', 'test', 'test', '1', '1', '1', '2018-03-28 15:07:08', '2018-03-28 15:21:31');
+INSERT INTO `bz_category` VALUES ('2', '0', 'test', 'this is a test', '', '', '1', '0', '1', '2018-03-29 15:54:34', null);
+INSERT INTO `bz_category` VALUES ('3', '0', '', '', '', '', '1', '0', '1', '2018-03-29 17:01:16', null);
+INSERT INTO `bz_category` VALUES ('4', '0', 'name', 'name', '', '', '1', '0', '1', '2018-03-29 17:01:56', '2018-03-29 17:25:05');
+INSERT INTO `bz_category` VALUES ('5', '0', 'name', 'name', '', '', '1', '111', '1', '2018-03-29 17:02:06', '2018-03-29 17:20:11');
 
 -- ----------------------------
 -- Table structure for `bz_category_description`
@@ -199,11 +204,12 @@ CREATE TABLE `bz_category_description` (
   `meta_keywords` varchar(16) NOT NULL COMMENT '关键字',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`category_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bz_category_description
 -- ----------------------------
+INSERT INTO `bz_category_description` VALUES ('1', 'test', 'test', 'test', 'test', '2018-03-28 15:28:50');
 
 -- ----------------------------
 -- Table structure for `bz_goods`
