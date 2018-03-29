@@ -76,4 +76,21 @@ class categoryModel extends Model {
 
 	}
 
+	/**
+	 * [categoryInfoDelete description]    分类信息删除
+	 * @param  [type] $id [description]    指定分类信息id
+	 * @return [type]     [description]    操作结果
+	 */
+	public function categoryInfoDelete($id) {
+		$db = Db::name($this->table);
+		$result = $db
+				  ->where('category_id='.$id)
+				  ->delete();
+		if ($result) {
+			return $result;
+		} else {
+			return false;
+		}		
+	}
+
 }

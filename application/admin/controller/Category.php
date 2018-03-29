@@ -76,4 +76,16 @@ class Category extends Controller {
 		 }				
 	}
 
+	public function categoryInfoDelete() {
+		$id = input('id');
+		$infoDelete = new categoryModel();
+		$result = $infoDelete->categoryInfoDelete($id);
+		if ($result) {
+		 	$this->success('操作成功!','category/index');
+		 } else {
+		 	$this->error('操作失败!');
+		 }	
+	}
+
+
 }
