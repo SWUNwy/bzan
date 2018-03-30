@@ -73,6 +73,12 @@ class adminModel extends Model {
 	}
 
 
+	/**
+	 * [adminStatus description]    管理员状态设置
+	 * @param  [type] $id   [description]    管理员id
+	 * @param  [type] $data [description]    管理员现状态
+	 * @return [type]       [description]    返回操作结果
+	 */
 	public function adminStatus($id,$data) {
 		$db = Db::name($this->table);
 		switch ($data) {

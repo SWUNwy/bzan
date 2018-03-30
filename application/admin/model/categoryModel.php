@@ -104,12 +104,12 @@ class categoryModel extends Model {
 		$db = Db::name($this->table);
 		switch ($status) {
 			case '1':
-			$result = $db->where(['category_id'=>$id])
+				$result = $db->where(['category_id'=>$id])
 						 ->update(['status'=>0,'modified_time' => date('Y-m-d H:i:s'),]);
 				return $result;
 				break;
 			case '0':
-			$result = $db->where(['category_id'=>$id])
+				$result = $db->where(['category_id'=>$id])
 						 ->update(['status'=>1,'modified_time' => date('Y-m-d H:i:s')]);
 				return $result;
 				break;
