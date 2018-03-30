@@ -27,7 +27,7 @@ class Brand extends Controller {
 	 * [addBrand description]
 	 * 添加品牌
 	 */
-	public function brand_add() {
+	public function brandAdd() {
 		return $this->fetch();
 	}
 
@@ -35,7 +35,7 @@ class Brand extends Controller {
 	 * [brand_detail description]
 	 * @return [type] [description]
 	 */
-	public function brand_detail() {
+	public function brandAetail() {
 		return $this->fetch();
 	}
 
