@@ -93,4 +93,29 @@ class categoryModel extends Model {
 		}		
 	}
 
+
+	/**
+	 * [categroyStatus description]    分类状态 是否显示
+	 * @param  [type] $id     [description]    指定id
+	 * @param  [type] $status [description]    更改数据
+	 * @return [type]         [description]    操作结果
+	 */
+	public function categroyStatus($id,$status) {
+		$db = Db::name($this->table);
+		switch ($status) {
+			case '1':
+			$result = $db->where(['category_id'=>$id])
+						 ->update(['status'=>0,'modified_time' => date('Y-m-d H:i:s'),]);
+				return $result;
+				break;
+			case '0':
+			$result = $db->where(['category_id'=>$id])
+						 ->update(['status'=>1,'modified_time' => date('Y-m-d H:i:s')]);
+				return $result;
+				break;
+			default:
+			return false;
+		}
+	}
+
 }

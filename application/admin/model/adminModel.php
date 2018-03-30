@@ -78,12 +78,12 @@ class adminModel extends Model {
 		switch ($data) {
 			case '1':
 			$result = $db->where(['id'=>$id])
-						 ->update(['status'=>0]);
+						 ->update(['status'=>0,'last_time' => date('Y-m-d H:i;s'),]);
 				return $result;
 				break;
 			case '0':
 			$result = $db->where(['id'=>$id])
-						 ->update(['status'=>1]);
+						 ->update(['status'=>1,'last_time' => date('Y-m-d H:i;s'),]);
 				return $result;
 				break;
 			default:
