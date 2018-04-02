@@ -30,29 +30,30 @@
 <body>
     <div class=" clearfix">
         <div id="add_brand" class="clearfix">
-            <div class="left_add">
-                <div class="title_name">添加品牌</div>
-                <ul class="add_conent">
-                    <li class=" clearfix"><label class="label_name"><i>*</i>品牌名称：</label> <input name="" type="text" class="add_text"/></li>
-                    <li class=" clearfix"><label class="label_name"><i>*</i>品牌序号：</label> <input name="" type="text" class="add_text" style="width:80px"/></li>
-                    <li class=" clearfix"><label class="label_name">品牌图片：</label>
-                        <div class="demo l_f">
-                            <div class="logobox">
-                                <input type="file" name="">
-                            </div>
-                        </div> 
-                        <div class="prompt"><p>图片大小<b>120px*60px</b>图片大小小于5MB,</p><p>支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
-                    </li>
-                    <li class=" clearfix"><label class="label_name"><i>*</i>所属地区：</label> <input name="" type="text" class="add_text" style="width:120px"/></li>
-                    <li class=" clearfix"><label class="label_name">品牌描述：</label> <textarea name="" cols="" rows="" class="textarea" onkeyup="checkLength(this);"></textarea><span class="wordage">剩余字数：<span id="sy" style="color:Red;">500</span>字</span></li>
-                    <li class=" clearfix"><label class="label_name"><i>*</i>显示状态：</label> 
-                        <label><input name="checkbox" type="radio" class="ace" checked="checked"><span class="lbl">显示</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <label><input type="radio" class="ace" name="checkbox"><span class="lbl">不显示</span></label>
-                    </li>
-                </ul>
-            </div>
+            <form action="{:url('brand/brandInfoAdd')}" method="" enctype="multipart/form-data">
+	            <div class="left_add">
+	                <div class="title_name">添加品牌</div>
+	                <ul class="add_conent">
+	                    <li class=" clearfix"><label class="label_name"><i>*</i>品牌名称：</label> <input name="" type="text" class="add_text"/></li>
+	                    <li class=" clearfix"><label class="label_name">品牌图片：</label>
+	                        <div class="demo l_f">
+	                            <div class="logobox">
+	                                <input type="file" name="">
+	                            </div>
+	                        </div> 
+	                        <div class="prompt"><p>图片大小<b>120px*60px</b>图片大小小于5MB,</p><p>支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
+	                    </li>
+	                    <li class=" clearfix"><label class="label_name"><i>*</i>所属地区：</label> <input name="" type="text" class="add_text" style="width:120px"/></li>
+	                    <li class=" clearfix"><label class="label_name">品牌描述：</label> <textarea name="" cols="" rows="" class="textarea" onkeyup="checkLength(this);"></textarea><span class="wordage">剩余字数：<span id="sy" style="color:Red;">500</span>字</span></li>
+	                    <li class=" clearfix"><label class="label_name"><i>*</i>显示状态：</label> 
+	                        <label><input name="checkbox" type="radio" class="ace" checked="checked"><span class="lbl">显示</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                        <label><input type="radio" class="ace" name="checkbox"><span class="lbl">不显示</span></label>
+	                    </li>
+	                </ul>
+	                <div class="button_brand"><button onclick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="fa fa-save "></i>&nbsp;保存</button></div>
+	            </div>
+            </form>
         </div>
-        <div class="button_brand"><input name="" type="button"  class="btn btn-warning" value="保存"/><input name="" type="reset" value="取消" class="btn btn-warning"/></div>
     </div>
 </body>
 </html>

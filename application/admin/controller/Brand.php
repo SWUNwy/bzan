@@ -42,8 +42,12 @@ class Brand extends Controller {
 	 * [brand_detail description]
 	 * @return [type] [description]
 	 */
-	public function brandAetail() {
+	public function detail() {
 		return $this->fetch();
+	}
+
+	public function brandInfoAdd() {
+		echo "success";
 	}
 
 	public function delete() {}
