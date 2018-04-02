@@ -12,12 +12,15 @@ namespace app\admin\controller;
 
 use think\Controller;
 use app\admin\model\categoryModel;
-
+use app\admin\model\commonModel;
 class Category extends Controller {
 
+	private $table = 'category';
+
 	public function index() {
-		$dataList = new categoryModel();
-		$list = $dataList->categoryList();
+		$table = $this->table;
+		$dataList = new commonModel();
+		$list = $dataList->tableList($table);
 		$count = count($list);
 		$this->assign('count',$count);
 		$this->assign('list',$list);

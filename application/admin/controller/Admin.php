@@ -26,9 +26,9 @@ class Admin extends Controller {
 	 * @return [type] [description]
 	 */
 	public function admin_list() {
-		$admin = $this->table;
-		$data = new commonModel();
-		$list = $data->tableList($admin);
+		$table = $this->table;
+		$dataList = new commonModel();
+		$list = $dataList->tableList($table);
 		$allNum = count($list);
 		$this->assign('allNum',$allNum);
 		$this->assign('list',$list);
