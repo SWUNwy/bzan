@@ -13,18 +13,22 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Request;
 use app\admin\model\adminModel;
+use app\admin\model\commonModel;
 /**
  * 管理员控制器
  */
 class Admin extends Controller {
+
+	private $table = 'admin';
 
 	/**
 	 * [admin_list description]
 	 * @return [type] [description]
 	 */
 	public function admin_list() {
-		$data = new adminModel();
-		$list = $data->adminList();
+		$admin = $this->table;
+		$data = new commonModel();
+		$list = $data->tableList($admin);
 		$allNum = count($list);
 		$this->assign('allNum',$allNum);
 		$this->assign('list',$list);

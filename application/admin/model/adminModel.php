@@ -17,6 +17,10 @@ class adminModel extends Model {
 
 	protected $table = 'admin';
 
+	/**
+	 * [adminList description]    管理员列表
+	 * @return [type] [description]    返回管理员数据
+	 */
 	public function adminList() {
 		$db = Db::name($this->table);
 		$list = $db->select();

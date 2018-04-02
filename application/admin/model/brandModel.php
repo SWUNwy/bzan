@@ -12,7 +12,22 @@ namespace app\admin\model;
 
 use think\Model;
 use think\Db;
-/**
- * 公用模型类
- */
-class Common extends Model {}
+
+class brandModel extends Model {
+
+	private $table = 'brand';
+
+	
+	public function brandList() {
+		$db = Db::name($this->table);
+		$list = $db->select();
+		if ($list) {
+			return $list;
+		} else {
+			return false;
+		}
+	}
+
+
+
+}

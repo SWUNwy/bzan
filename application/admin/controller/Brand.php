@@ -11,7 +11,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
-use app\admin\model\Common;
+use app\admin\model\brandModel;
 /**
  * 商品品牌管理
  */
@@ -20,6 +20,11 @@ class Brand extends Controller {
 	protected $brand = 'brand';
 
 	public function index() {
+		$list = new brandModel();
+		$data = $list->brandList();
+		$count = count($data);
+		$this->assign('count',$count);
+		$this->assign('data',$data);
 		return $this->fetch();
 	}
 
