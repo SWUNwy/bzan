@@ -28,7 +28,7 @@ class Brand extends Validate {
 	 * @var [type]
 	 */
 	protected $message = [
-		'brand_name.require' => '品牌名必填'
+		'brand_name.require' => '品牌名必填',
 		'brand_name.min'	 => '品牌名不能小于两个字',
 	];
 

@@ -31,10 +31,6 @@ class brandModel extends Model {
 
 
 	public function brandInfoAdd($data){
-    	$validate = validate('Brand');
-        if (!$validate->check($data)) {
-        	return ['error'=>$validate->getError()]
-        }
 	    $db = Db::name($this->table);
 	    $result = $db->insert($data,false,true);
 	    if ($result) {
@@ -42,6 +38,23 @@ class brandModel extends Model {
 	    } else {
 	    	return false;
 	    }
+	}
+
+	/**
+	 * [infoDelete description]    删除指定品牌数据
+	 * @param  [type] int     $id [description]    品牌id
+	 * @return [type] boolean $result   [description]    返回操作结果
+	 */
+	public function infoDelete($id) {
+		$db = Db::name($this->table);
+		$result = $db
+				  ->where('brand_id='.$id)
+				  ->delete();
+		if ($result) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 

@@ -43,7 +43,7 @@ class Brand extends Controller {
 	 * [brand_detail description]
 	 * @return [type] [description]
 	 */
-	public function detail() {
+	public function brandEdit() {
 		return $this->fetch();
 	}
 
@@ -64,7 +64,7 @@ class Brand extends Controller {
         }
 		$data = [
 			'brand_name' => input('brand_name'),
-			'path'  => '__PUBLIC__/admin/uploads/brand/'.$log,
+			'path'  	 => '__PUBLIC__/admin/uploads/brand/'.$log,
 			'place' 	 => input('place'),
 			'status' 	 => input('status'),
 			'sort_id' 	 => input('sort_id'),
@@ -80,6 +80,15 @@ class Brand extends Controller {
 		}
 	}
 
-	public function delete() {}
+	public function infoDelete() {
+		$id = input('id');
+		$delete = new brandModel();
+		$result = $delete->infoDelete($id);
+		if ($result) {
+			$this->success('删除成功!');
+		} else {
+			$this->error('删除失败!');
+		}
+	}
 
 }

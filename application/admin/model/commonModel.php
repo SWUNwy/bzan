@@ -32,4 +32,8 @@ class commonModel extends Model {
 		}
 	}
 
+	public function dataInfo($id,$table) {
+		$db = Db::name($table);
+	}
+
 }

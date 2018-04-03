@@ -72,6 +72,7 @@
                                 <tr>
                                     <th width="25px"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
                                     <th width="80px">ID</th>
+                                    <th width="80px">排序</th>
                                     <th width="120px">品牌LOGO</th>
                                     <th width="120px">品牌名称</th>
                                     <th width="130px">所属地区/国家</th>
@@ -86,6 +87,7 @@
                                 <tr>
                                     <td width="25px"><label><input type="checkbox" class="ace" ><span class="lbl"></span></label></td>
                                     <td width="80px">{$vo.brand_id}</td>
+                                    <td>{$vo.sort_id}</td>
                                     <td><img src="{$vo.path}"  width="130"/></td>
                                     <td><a href="javascript:ovid()" name="Brand_detailed.html" style="cursor:pointer" class="text-primary brond_name" onclick="generateOrders('561');" title="{$vo.brand_name}">{$vo.brand_name}</a></td>
                                     <td>{$vo.place}</td>
@@ -93,9 +95,9 @@
                                     <td>{$vo.add_time}</td>
                                     <td class="td-status"><span class="{$vo.status==1 ? 'label label-success' : 'radius label label-defaunt radius'}">{$vo.status==1 ? '已启用' : '已停用'}</span></td>
                                     <td class="td-manage">
-                                        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="icon-ok bigger-120"></i></a> 
-                                        <a title="编辑" onclick="member_edit('编辑','{:url('brand/brand_detail')}','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
-                                        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
+                                        <a onClick=""  href="{:url('admin/adminStatus',['id'=>$vo['id'],'status'=>$vo['status']])}" title="{$vo.status==0 ? '启用' : '停用'}"  class="{$vo.status==0 ? 'btn btn-xs btn-success' : 'btn btn-xs btn'}"><i class="fa fa-check  bigger-120"></i></a>
+                                        <a title="编辑" href="{:url('brand/brandEdit',['id'=>$vo['brand_id']])}"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
+                                        <a title="删除" href="{:url('brand/infoDelete',['id'=>$vo['brand_id']])}" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
                                     </td>
                                 </tr>
                             {/volist}
