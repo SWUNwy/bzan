@@ -30,11 +30,15 @@ class System extends Controller {
 
 	public function updateInfo() {
 		$file = request()->file('icon_url');
+		if (empty($file)) {
+			$this->error('请选择上传文件!');
+		}
 		$path = ROOT_PATH . 'public' . DS .'admin/uploads/system';
 		$icon_info = $file->validate(['size'=>2048000,'ext'=>'jpg,png,gif'])->move($path);
 		if ($icon_info) {
             // 成功上传后 获取上传信息
-            $icon_url = $icon_info->getSaveName();
+            $date_path = date('Ymd');
+            $icon_url = $date_path.'/'.$icon_info->getFileName();
 		}else{
             // 上传失败获取错误信息
             echo $file->getError();

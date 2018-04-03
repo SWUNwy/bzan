@@ -11,6 +11,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\Image;
 use app\admin\model\brandModel;
 use app\admin\model\commonModel;
 /**
@@ -47,7 +48,36 @@ class Brand extends Controller {
 	}
 
 	public function brandInfoAdd() {
-		echo "success";
+		$file = request()->file('path');
+		if (empty($file)) {
+			$this->error('请选择上传文件!');
+		}
+		$path = ROOT_PATH . 'public' . DS .'admin/uploads/brand';
+		$brand_log = $file->validate(['size'=>10485760,'ext'=>'jpg,png,jpeg'])->move($path);
+		if ($brand_log) {
+            // 成功上传后 获取上传信息
+            $date_path = date('Ymd');
+            $log = $date_path.'/'.$brand_log->getFileName();
+		}else{
+            // 上传失败获取错误信息
+            echo $file->getError();
+        }
+		$data = [
+			'brand_name' => input('brand_name'),
+			'path'  => '__PUBLIC__/admin/uploads/brand/'.$log,
+			'place' 	 => input('place'),
+			'status' 	 => input('status'),
+			'sort_id' 	 => input('sort_id'),
+			'desc' 		 => input('desc'),
+			'add_time'   => date('Y-m-d H:i:s'),
+		];
+		$addInfo = new brandModel();
+		$result = $addInfo->brandInfoAdd($data);
+		if ($result) {
+			$this->success('上传成功!','brand/index');
+		} else {
+			$this->error('上传失败!');
+		}
 	}
 
 	public function delete() {}

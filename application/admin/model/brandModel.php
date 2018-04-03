@@ -15,7 +15,7 @@ use think\Db;
 
 class brandModel extends Model {
 
-	private $table = 'brand';
+	protected $table = 'brand';
 
 	
 	public function brandList() {
@@ -28,6 +28,21 @@ class brandModel extends Model {
 		}
 	}
 
+
+
+	public function brandInfoAdd($data){
+    	$validate = validate('Brand');
+        if (!$validate->check($data)) {
+        	return ['error'=>$validate->getError()]
+        }
+	    $db = Db::name($this->table);
+	    $result = $db->insert($data,false,true);
+	    if ($result) {
+	    	return $result;
+	    } else {
+	    	return false;
+	    }
+	}
 
 
 }
