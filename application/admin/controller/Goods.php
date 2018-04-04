@@ -13,14 +13,15 @@ namespace app\admin\controller;
 use think\Controller;
 use think\View;
 use app\admin\model\goodsmodel;
+use app\admin\model\commonModel;
 
 class Goods extends Controller {
 	
-	public function goods_list() {
+	public function goodsList() {
 		return $this->fetch();
 	}
 
-	public function goods_add() {
+	public function goodsAdd() {
 		return $this->fetch();
 	}
 }
