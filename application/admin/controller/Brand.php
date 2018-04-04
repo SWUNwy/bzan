@@ -44,6 +44,31 @@ class Brand extends Controller {
 	 * @return [type] [description]
 	 */
 	public function brandEdit() {
+		$id = input('brand_id');
+		$file = request()->file('path');
+		if (empty($file)) {
+			$this->error('请选择上传文件!');
+		}
+		$path = ROOT_PATH . 'public' . DS .'admin/uploads/brand';
+		$brand_log = $file->validate(['size'=>10485760,'ext'=>'jpg,png,jpeg'])->move($path);
+		if ($brand_log) {
+            // 成功上传后 获取上传信息
+            $date_path = date('Ymd');
+            $log = $date_path.'/'.$brand_log->getFileName();
+		}else{
+            // 上传失败获取错误信息
+            echo $file->getError();
+        }
+		$data = [
+			'brand_name' => input('brand_name'),
+			'path'  	 => '__PUBLIC__/admin/uploads/brand/'.$log,
+			'place' 	 => input('place'),
+			'status' 	 => input('status'),
+			'sort_id' 	 => input('sort_id'),
+			'desc' 		 => input('desc'),
+			'last_time'   => date('Y-m-d H:i:s'),
+		];
+		$addInfo = new brandModel();
 		return $this->fetch();
 	}
 
