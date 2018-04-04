@@ -93,9 +93,9 @@
                                     <td>{$vo.place}</td>
                                     <td class="text-l">{$vo.desc}</td>
                                     <td>{$vo.add_time}</td>
-                                    <td class="td-status"><span class="{$vo.status==1 ? 'label label-success' : 'radius label label-defaunt radius'}">{$vo.status==1 ? '已启用' : '已停用'}</span></td>
+                                    <td class="td-status"><span class="{$vo.status==1 ? 'label label-success' : 'radius label label-defaunt radius'}">{$vo.status==1 ? '显示' : '不显示'}</span></td>
                                     <td class="td-manage">
-                                        <a onClick=""  href="{:url('admin/adminStatus',['id'=>$vo['brand_id'],'status'=>$vo['status']])}" title="{$vo.status==0 ? '启用' : '停用'}"  class="{$vo.status==0 ? 'btn btn-xs btn-success' : 'btn btn-xs btn'}"><i class="icon-ok bigger-120"></i></a>
+                                        <a onClick=""  href="{:url('brand/brandStatus',['id'=>$vo['brand_id'],'status'=>$vo['status']])}" title="{$vo.status==0 ? '显示' : '不显示'}"  class="{$vo.status==0 ? 'btn btn-xs btn-success' : 'btn btn-xs btn'}"><i class="icon-ok bigger-120"></i></a>
                                         <a title="编辑" href="{:url('brand/brandEdit',['id'=>$vo['brand_id']])}"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
                                         <a title="删除" href="{:url('brand/infoDelete',['id'=>$vo['brand_id']])}" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
                                     </td>

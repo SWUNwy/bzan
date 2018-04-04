@@ -60,10 +60,19 @@ class brandModel extends Model {
 	/**
 	 * [infoEdit description]    编辑品牌信息
 	 * @param  [type] $id   [description]    指定id
-	 * @param  [type] $data [description]    编辑的信息
 	 * @return [type]       [description]    返回操作结果
 	 */
-	public function infoEdit($id,$data) {
+	public function infoEdit($id) {
+		$db = Db::name($this->table);
+		$result = $db->find($id);
+		if ($result) {
+			return $result;
+		} else {
+			return false;
+		}		
+	}
+
+	public function brandInfoEdit($id,$data) {
 		$db = Db::name($this->table);
 		$result = $db
 				  ->where('brand_id='.$id)
@@ -72,7 +81,7 @@ class brandModel extends Model {
 			return true;
 		} else {
 			return false;
-		}		
+		}
 	}
 
 }

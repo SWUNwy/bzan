@@ -31,7 +31,7 @@
     <div class=" clearfix">
         <div id="add_brand" class="clearfix">
             <form action="{:url('brand/brandInfoEdit')}" method="post" enctype="multipart/form-data">
-            <input name="brand_id" id="brand_id" value="{$data.brand_id}" />
+            <input name="brand_id" type="hidden" id="brand_id" value="{$data.brand_id}" />
 	            <div class="left_add">
 	                <div class="title_name">添加品牌</div>
 	                <ul class="add_conent">
@@ -39,20 +39,21 @@
 	                    <li class=" clearfix"><label class="label_name">品牌图片：</label>
 	                        <div class="demo l_f">
 	                            <div class="logobox">
+	                            	<input value="{$data.path}" type="text" />
 	                                <input type="file" name="path" id="path" value="{$data.path}">
 	                            </div>
 	                        </div> 
 	                        <div class="prompt"><p>图片大小<b>120px*60px</b>图片大小小于10MB,</p><p>支持.jpg;.png;.jpeg格式的图片</p></div>  
 	                    </li>
 	                    <li class=" clearfix"><label class="label_name"><i>*</i>所属地区：</label> <input name="place" id="place" value="{$data.place}" type="text" class="add_text" style="width:120px"/></li>
-	                    <li class=" clearfix"><label class="label_name">品牌描述：</label> <textarea name="desc" id="desc" value="{$data.desc}" cols="" rows="" class="textarea" onkeyup="checkLength(this);"></textarea></li>
-	                    <li class=" clearfix"><label class="label_name"><i>*</i>排序：</label> <input name="sort_id" id="sort_id" value="{$data.sort_id}" type="text" class="add_text"/></li>
+	                    <li class=" clearfix"><label class="label_name">品牌描述：</label> <input name="desc" id="desc" value="{$data.desc}" /></li>
+	                    <li class=" clearfix"><label class="label_name"><i>*</i>排序：</label> <input name="sort_id" id="sort_id" value="{$data.sort_id}" type="text" class="add_text"></li>
 	                    <li class=" clearfix"><label class="label_name"><i>*</i>显示状态：</label> 
 	                        <label><input name="status"  value="1" type="radio" class="ace" {if condition="$data.status eq 1"} checked="checked" {/if}><span class="lbl">显示</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                        <label><input name="status" value="0" type="radio" class="ace" {if condition="$data.status eq 0"} checked="checked" {/if}><span class="lbl">不显示</span></label>
 	                    </li>
 	                </ul>
-	                <div class="button_brand"><button onclick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="fa fa-save "></i>&nbsp;保存</button></div>
+	                <div class="button_brand"><button class="btn btn-primary radius" type="submit"><i class="fa fa-save "></i>&nbsp;保存</button></div>
 	            </div>
             </form>
         </div>

@@ -39,16 +39,21 @@ class Brand extends Controller {
 		return $this->fetch();
 	}
 
+	public function brandEdit() {
+		$id = input('id');
+		$info = new brandModel();
+		$data = $info->infoEdit($id);
+		$this->assign('data',$data);
+		return $this->fetch();
+	}
+
 	/**
 	 * [brand_detail description]
 	 * @return [type] [description]
 	 */
-	public function brandEdit() {
+	public function brandInfoEdit() {
 		$id = input('brand_id');
 		$file = request()->file('path');
-		if (empty($file)) {
-			$this->error('请选择上传文件!');
-		}
 		$path = ROOT_PATH . 'public' . DS .'admin/uploads/brand';
 		$brand_log = $file->validate(['size'=>10485760,'ext'=>'jpg,png,jpeg'])->move($path);
 		if ($brand_log) {
@@ -69,7 +74,13 @@ class Brand extends Controller {
 			'last_time'   => date('Y-m-d H:i:s'),
 		];
 		$addInfo = new brandModel();
-		return $this->fetch();
+		$result = $addInfo->brandInfoEdit($id,$data);
+		if ($result) {
+			$this->success('更新成功!','brand/index');
+		} else {
+			$this->error('更新失败!');
+		}
+
 	}
 
 	public function brandInfoAdd() {
