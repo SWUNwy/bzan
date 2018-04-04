@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-03-29 17:34:56
+Date: 2018-04-04 15:30:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `bz_admin` (
 -- ----------------------------
 -- Records of bz_admin
 -- ----------------------------
-INSERT INTO `bz_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '18782253525', 'admin@admin.com', 'admintest', '0', '0', '2018-03-26 16:30:41', '0000-00-00 00:00:00', '0.0.0.0');
+INSERT INTO `bz_admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '18782253525', 'admin@admin.com', 'admintest', '0', '1', '2018-03-26 16:30:41', '2018-04-04 14:17:45', '0.0.0.0');
 
 -- ----------------------------
 -- Table structure for `bz_arrtibute`
@@ -128,19 +128,23 @@ DROP TABLE IF EXISTS `bz_brand`;
 CREATE TABLE `bz_brand` (
   `brand_id` int(16) NOT NULL AUTO_INCREMENT COMMENT '品牌Id自增主键',
   `brand_name` varchar(64) NOT NULL COMMENT '品牌名',
-  `brand_logo` varchar(64) NOT NULL COMMENT '品牌图片URL',
+  `path` varchar(256) NOT NULL COMMENT '品牌图片URL',
+  `place` varchar(8) NOT NULL COMMENT '品牌地址',
   `category_id` int(16) NOT NULL COMMENT '分类Id',
-  `is_show` int(9) NOT NULL COMMENT '品牌状态',
-  `sort_order` int(11) NOT NULL COMMENT '品牌排序',
-  `brand_desc` varchar(64) NOT NULL COMMENT '品牌描述',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  `modified_time` datetime NOT NULL COMMENT '最后修改时间',
+  `status` int(9) NOT NULL COMMENT '品牌状态',
+  `sort_id` int(11) NOT NULL COMMENT '品牌排序',
+  `desc` varchar(64) NOT NULL COMMENT '品牌描述',
+  `add_time` datetime NOT NULL COMMENT '创建时间',
+  `last_time` datetime NOT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`brand_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bz_brand
 -- ----------------------------
+INSERT INTO `bz_brand` VALUES ('1', 'test', '__PUBLIC__/admin/uploads/brand/20180404/2a77e703a32f4e69729ac375d67bd9e2.jpeg', 'test', '1', '1', '1', 'test', '2018-04-02 16:40:19', '2018-04-04 14:54:08');
+INSERT INTO `bz_brand` VALUES ('2', '测试', '__PUBLIC__/admin/uploads/brand/20180403/247ae40df1ffd5022f5f0cd9a22a9bb2.png', '测试', '0', '0', '1', '测试', '2018-04-03 14:43:42', '2018-04-04 14:54:14');
+INSERT INTO `bz_brand` VALUES ('3', '测试测试', '__PUBLIC__/admin/uploads/brand/20180404/26c8b444ba71d571c94c3741c90e0b6a.jpeg', '测试测试', '0', '1', '1111111', '测试测试', '2018-04-03 15:05:58', '2018-04-04 14:54:39');
 
 -- ----------------------------
 -- Table structure for `bz_cart`
@@ -176,8 +180,8 @@ CREATE TABLE `bz_category` (
   `meta_title` varchar(64) NOT NULL COMMENT '标题',
   `meta_keywords` varchar(64) NOT NULL COMMENT '关键字',
   `top` int(9) NOT NULL COMMENT '是否顶部栏展示',
-  `sort_id` int(16) NOT NULL COMMENT '排序Id',
-  `status` int(4) NOT NULL COMMENT '状态',
+  `sort_id` int(7) NOT NULL COMMENT '排序Id',
+  `status` int(1) NOT NULL COMMENT '状态',
   `create_time` datetime DEFAULT NULL COMMENT '添加时间',
   `modified_time` datetime DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`category_id`)
@@ -186,11 +190,7 @@ CREATE TABLE `bz_category` (
 -- ----------------------------
 -- Records of bz_category
 -- ----------------------------
-INSERT INTO `bz_category` VALUES ('1', '1', 'test', 'test', 'test', 'test', '1', '1', '1', '2018-03-28 15:07:08', '2018-03-28 15:21:31');
-INSERT INTO `bz_category` VALUES ('2', '0', 'test', 'this is a test', '', '', '1', '0', '1', '2018-03-29 15:54:34', null);
-INSERT INTO `bz_category` VALUES ('3', '0', '', '', '', '', '1', '0', '1', '2018-03-29 17:01:16', null);
-INSERT INTO `bz_category` VALUES ('4', '0', 'name', 'name', '', '', '1', '0', '1', '2018-03-29 17:01:56', '2018-03-29 17:25:05');
-INSERT INTO `bz_category` VALUES ('5', '0', 'name', 'name', '', '', '1', '111', '1', '2018-03-29 17:02:06', '2018-03-29 17:20:11');
+INSERT INTO `bz_category` VALUES ('1', '0', 'test', 'test', 'test', 'test', '1', '1', '1', '2018-03-28 15:07:08', '2018-04-04 14:55:55');
 
 -- ----------------------------
 -- Table structure for `bz_category_description`
@@ -445,7 +445,7 @@ DROP TABLE IF EXISTS `bz_system`;
 CREATE TABLE `bz_system` (
   `id` int(16) NOT NULL AUTO_INCREMENT,
   `title` varchar(24) NOT NULL DEFAULT '网站名称',
-  `icon_url` varchar(255) NOT NULL DEFAULT '网站icon图标',
+  `icon_path` varchar(255) NOT NULL DEFAULT '网站icon图标',
   `keyword` varchar(255) NOT NULL DEFAULT '网站关键字',
   `meta` varchar(255) NOT NULL DEFAULT '网站描述',
   `copyright` varchar(255) NOT NULL DEFAULT '网站底部版权信息',
@@ -458,4 +458,4 @@ CREATE TABLE `bz_system` (
 -- ----------------------------
 -- Records of bz_system
 -- ----------------------------
-INSERT INTO `bz_system` VALUES ('1', 'bz', '20180321\\305930801371b8b2f86e36f9cb28e608.png', '网站关键字', '网站描述', '网站底部版权信息', 'icp备案', '屏蔽词', '2018-03-21 09:51:30');
+INSERT INTO `bz_system` VALUES ('1', 'bz', '__PUBLIC__/admin/uploads/system/20180404/6e4aa78130662c1f9e43fbe091b538ba.jpg', '网站关键字', '网站描述', '网站底部版权信息', 'icp备案', '屏蔽词', '2018-04-04 14:16:32');

@@ -21,8 +21,8 @@ class GoodsModel extends Model {
 	 * [goods_list description]
 	 * @return [type] [description]
 	 */
-	public function goods_list() {
-		$arr = Db::name($this->table)->select();
-		return $arr;
+	public function goodsList() {
+		$data = Db::name($this->table)->select();
+		return $data;
 	}
 }
