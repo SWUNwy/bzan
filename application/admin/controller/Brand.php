@@ -127,4 +127,16 @@ class Brand extends Controller {
 		}
 	}
 
+
+	public function brandStatus() {
+		$id = input('id');
+		$status = input('status');
+		$brandModel = new brandModel();
+		$result = $brandModel->brandStatus($id,$status);
+		if ($result) {
+			$this->success('操作成功!');
+		} else {
+			$this->error('操作失败!');
+		}
+	}
 }

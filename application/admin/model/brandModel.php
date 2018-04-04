@@ -84,4 +84,28 @@ class brandModel extends Model {
 		}
 	}
 
+	/**
+	 * [brandStatus description]    品牌状态设置
+	 * @param  [type] $id     [description]    品牌id
+	 * @param  [type] $status [description]    品牌现有状态
+	 * @return [type]         [description]    返回操作结果
+	 */
+	public function brandStatus($id,$status) {
+		$db = Db::name($this->table);
+		switch ($status) {
+			case '1':
+			$result = $db->where(['brand_id'=>$id])
+						 ->update(['status'=>0,'last_time' => date('Y-m-d H:i;s'),]);
+				return $result;
+				break;
+			case '0':
+			$result = $db->where(['brand_id'=>$id])
+						 ->update(['status'=>1,'last_time' => date('Y-m-d H:i;s'),]);
+				return $result;
+				break;
+			default:
+			return false;
+		}
+	}
+
 }

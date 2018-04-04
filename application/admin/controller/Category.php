@@ -94,10 +94,8 @@ class Category extends Controller {
 	public function categroyStatus() {
 		$id = input('id');
 		$status = input('status');
-		// var_dump($status);
-		// die();
-		$status = new categoryModel();
-		$result = $status->categroyStatus($id,$status);
+		$categoryModel = new categoryModel();
+		$result = $categoryModel->categroyStatus($id,$status);
 		if ($result) {
 			$this->success('操作成功!');
 		} else {
