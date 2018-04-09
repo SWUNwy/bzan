@@ -18,8 +18,8 @@ class GoodsModel extends Model {
 	protected $table = 'goods';
 
 	/**
-	 * [goods_list description]
-	 * @return [type] [description]
+	 * [goods_list description]    商品数据列表
+	 * @return [type] [description]    返回所有数据
 	 */
 	public function goodsList() {
 		$data = Db::name($this->table)->select();
