@@ -29,4 +29,8 @@ class Goods extends Controller {
 	public function goodsAdd() {
 		return $this->fetch();
 	}
+
+	public function goodsCopy() {}
+
+	public function goodsAllDeltete() {}
 }
