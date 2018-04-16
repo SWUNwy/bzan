@@ -60,6 +60,10 @@ class User extends Controller {
 		return $this->fetch();
 	}
 
+	/**
+	 * 订单状态页面
+	 * @return [type] [description]
+	 */
 	public function orderStatus() {
 		return $this->fetch();
 	}
