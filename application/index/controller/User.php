@@ -19,5 +19,12 @@ use think\Controller;
  */
 class User extends Controller {
 
-	public function index() {}
+	public function index() {
+		return $this->fetch();
+	}
+
+	public function information() {
+		return $this->fetch();
+	}
+
 }
