@@ -60,8 +60,33 @@ class User extends Controller {
 		return $this->fetch();
 	}
 
+	public function orderStatus() {
+		return $this->fetch();
+	}
+
+	/**
+	 * 用户订单详细信息
+	 * @return [type] [description]
+	 */
 	public function orderInfo() {
 		return $this->fetch();
 	}
+
+	/**
+	 * 用户咨询建议页面
+	 * @return [type] [description]
+	 */
+	public function suggest() {
+		return $this->fetch();
+	}
+
+	/**
+	 * 用户信息页面
+	 * @return [type] [description]
+	 */
+	public function news() {
+		return $this->fetch();
+	}
+
 
 }
