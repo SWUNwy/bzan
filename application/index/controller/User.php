@@ -44,4 +44,24 @@ class User extends Controller {
 		return $this->fetch();
 	}
 
+	/**
+	 * 用户地址列表
+	 * @return [type] [description]
+	 */
+	public function addressList() {
+		return $this->fetch();
+	}
+
+	/**
+	 * 用户中心订单列表
+	 * @return [type] [description]
+	 */
+	public function orderList() {
+		return $this->fetch();
+	}
+
+	public function orderInfo() {
+		return $this->fetch();
+	}
+
 }
