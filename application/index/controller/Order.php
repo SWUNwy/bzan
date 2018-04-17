@@ -19,6 +19,15 @@ use think\Controller;
  */
 class Order extends Controller {
 
-	public function index() {}
+    public function index() {}
+
+    /**
+     * 用户订单支付成功跳转页面
+     * @return [type] [description]
+     */
+    public function orderSuccess() {
+        return $this->fetch();
+    }
+    
 
 }
