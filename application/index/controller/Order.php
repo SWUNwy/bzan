@@ -37,4 +37,12 @@ class Order extends Controller {
     	return $this->fetch();
     }
 
+    /**
+     * 订单支付页面收货地址添加
+     * @return [type] [description]
+     */
+    public function payaddressAdd() {}
+
+
+
 }

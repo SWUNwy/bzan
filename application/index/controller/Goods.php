@@ -22,4 +22,13 @@ class Goods extends Controller {
 
 	public function index() {}
 
+	/**
+	 * 商品搜索结果展示页
+	 * @return [type] [description]
+	 */
+	public function goodsList() {
+		return $this->fetch();
+	}
+
+
 }
