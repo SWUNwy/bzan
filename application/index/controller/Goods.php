@@ -30,5 +30,16 @@ class Goods extends Controller {
 		return $this->fetch();
 	}
 
+	/**
+	 * 商品细节页面
+	 * @return [type] [description]
+	 */
+	public function goodsDetail() {
+		return $this->fetch();
+	}
+
+	public function goodsCategory() {
+		return $this->fetch();
+	}
 
 }
