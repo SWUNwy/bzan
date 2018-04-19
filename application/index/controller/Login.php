@@ -22,4 +22,13 @@ class Login extends Controller {
     public function index() {
         return $this->fetch();
     }
+
+    /**
+     * 用户登录
+     * @return [type] [description]
+     */
+    public function login() {
+    	$this->success('登录成功!','User/index');
+    }
+
 }

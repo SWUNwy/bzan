@@ -30,12 +30,12 @@
 
                     <div class="am-tabs" id="doc-my-tabs">
                         <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                            <li class="am-active"><a href="">邮箱注册</a></li>
+<!--                             <li class="am-active"><a href="">邮箱注册</a></li> -->
                             <li><a href="">手机号注册</a></li>
                         </ul>
 
                         <div class="am-tabs-bd">
-                            <div class="am-tab-panel am-active">
+<!--                             <div class="am-tab-panel am-active">
                                 <form method="post">
 
                                     <div class="user-email">
@@ -62,7 +62,7 @@
                                     <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
                                 </div>
 
-                            </div>
+                            </div> -->
 
                             <div class="am-tab-panel">
                                 <form method="post">
@@ -74,7 +74,7 @@
                                         <label for="code"><i class="am-icon-code-fork"></i></label>
                                         <input type="tel" name="" id="code" placeholder="请输入验证码">
                                         <a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-                                            <span id="dyMobileButton">获取</span></a>
+                                        <span id="dyMobileButton">获取</span></a>
                                     </div>
                                     <div class="user-pass">
                                         <label for="password"><i class="am-icon-lock"></i></label>
@@ -109,28 +109,8 @@
                 </div>
             </div>
 
-            <div class="footer ">
-                <div class="footer-hd ">
-                    <p>
-                        <a href="# ">重庆倍赞</a>
-                        <b>|</b>
-                        <a href="# ">商城首页</a>
-                        <b>|</b>
-                        <a href="# ">支付方式</a>
-                        <b>|</b>
-                        <a href="# ">物流</a>
-                    </p>
-                </div>
-                <div class="footer-bd ">
-                    <p>
-                        <a href="# ">关于倍赞</a>
-                        <a href="# ">合作伙伴</a>
-                        <a href="# ">联系我们</a>
-                        <a href="# ">网站地图</a>
-                        <em>© 2015-2025 重庆倍赞电子商务有限公司 版权所有</em>
-                    </p>
-                </div>
-            </div>
+            <!--底部介绍链接-->
+            {include file="common/foot" /}
     </body>
 
 </html>

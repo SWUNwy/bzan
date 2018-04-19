@@ -8,39 +8,22 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\index\controller;
+namespace app\index\model;
 
-use think\Controller;
-use app\index\model\goodsModel;
+use think\Model;
+use think\Db;
+
 /**
  * GoodsController
- * 商品模块控制器
+ * 商品数据处理模型
  * @author wyecho <[paul.wang@hotstaro2o.com]>
- * @date(2018-1-19)
+ * @date(2018-4-19)
  */
+class goodsModel extends Model {
 
-class Goods extends Controller {
-
-	public function index() {}
-
-	/**
-	 * 商品搜索结果展示页
-	 * @return [type] [description]
-	 */
-	public function goodsList() {
-		return $this->fetch();
-	}
-
-	/**
-	 * 商品细节页面
-	 * @return [type] [description]
-	 */
 	public function goodsDetail() {
-		return $this->fetch();
+		return true;
 	}
 
-	public function goodsCategory() {
-		return $this->fetch();
-	}
 
 }
