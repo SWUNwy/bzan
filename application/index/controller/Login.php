@@ -28,7 +28,16 @@ class Login extends Controller {
      * @return [type] [description]
      */
     public function login() {
-    	$this->success('登录成功!','User/index');
+    	$code = input('code');
+    	$captcha = new \think\captcha\Captcha();
+    	$result=$captcha->check($code);  
+        if($result===false){  
+            $this->error('验证码错误!','Login/index');  
+        } 
+
+        $user = input('user');
+        
+
     }
 
 }

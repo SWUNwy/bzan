@@ -28,7 +28,7 @@
                     <h3 class="title">登录商城</h3>
 
                     <div class="clear"></div>
-                        <form method="post" action="{:url('Index/index')}">
+                        <form method="post" action="{:url('Login/login')}">
                             <div class="am-tab-panel">
 
                                 <div class="user-name">
@@ -41,8 +41,8 @@
                                 </div>
                                 <div class="verification">
                                     <label for="code"><i class="am-icon-code-fork"></i></label>
-                                    <input type="tel" name="" id="code" placeholder="请输入验证码">
-                                    <img src="__PUBLIC__/index/images/verify.png" title="点击更换" id="dyMobileButton">
+                                    <input type="tel" name="code" id="code" placeholder="请输入验证码">
+                                    <img src="{:captcha_src()}" onclick="this.src=this.src+'?'" alt="captcha" title="点击更换" id="dyMobileButton">
                                 </div>
 
                                 <div class="am-cf">
