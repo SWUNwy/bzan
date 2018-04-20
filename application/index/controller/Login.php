@@ -11,6 +11,7 @@
 namespace app\index\controller;
 
 use think\Controller;
+use think\Db;
 /**
  * IndexController
  * 商城用户登录模块
@@ -35,7 +36,18 @@ class Login extends Controller {
             $this->error('验证码错误!','Login/index');  
         } 
 
-        $user = input('user');
+        $uname = input('uname');
+        $pwd  = MD5(input('password'));
+        $field = ['uname','phone','email'];
+        $user = Db::name('user')
+                    ->where('uname|phone|email','eq',$uname)
+                    ->find();
+        if (!$user || $user['pwd'] != $pwd) {
+            $this->error('用户名或密码错误!','Login/index');
+        } else {
+            $this->success('登录成功!',U('User/index'));
+        }
+
         
 
     }

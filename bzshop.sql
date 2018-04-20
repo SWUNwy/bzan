@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-04-04 15:30:40
+Date: 2018-04-20 18:07:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -234,8 +234,8 @@ CREATE TABLE `bz_goods` (
   `sales_num` int(16) NOT NULL COMMENT '商品销量',
   `is_recommend` smallint(6) NOT NULL COMMENT '是否推荐',
   `status` int(16) NOT NULL COMMENT '商品状态:0下架，1上架',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  `modified_time` datetime NOT NULL COMMENT '最后修改时间',
+  `add_time` datetime NOT NULL COMMENT '创建时间',
+  `last_time` datetime NOT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`goods_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -459,3 +459,25 @@ CREATE TABLE `bz_system` (
 -- Records of bz_system
 -- ----------------------------
 INSERT INTO `bz_system` VALUES ('1', 'bz', '__PUBLIC__/admin/uploads/system/20180404/6e4aa78130662c1f9e43fbe091b538ba.jpg', '网站关键字', '网站描述', '网站底部版权信息', 'icp备案', '屏蔽词', '2018-04-04 14:16:32');
+
+-- ----------------------------
+-- Table structure for `bz_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `bz_user`;
+CREATE TABLE `bz_user` (
+  `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '用户id，自增主键',
+  `uname` varchar(16) NOT NULL COMMENT '用户名',
+  `pwd` varchar(64) NOT NULL COMMENT '密码',
+  `phone` varchar(16) NOT NULL COMMENT '手机号码',
+  `email` varchar(16) NOT NULL COMMENT '邮箱',
+  `last_ip` varchar(64) NOT NULL COMMENT '最后登录IP',
+  `img` varchar(64) DEFAULT NULL COMMENT '头像地址',
+  `add_time` datetime DEFAULT NULL COMMENT '首次添加时间',
+  `last_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bz_user
+-- ----------------------------
+INSERT INTO `bz_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456789', '123@123.com', '', null, null, null);
