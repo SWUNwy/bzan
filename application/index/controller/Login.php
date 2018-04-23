@@ -12,8 +12,9 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Db;
+use \think\Request;
 /**
- * IndexController
+ * IoginController
  * 商城用户登录模块
  * @author wyecho <[paul.wang@hotstaro2o.com]>
  * @date(2018-1-19)
@@ -38,14 +39,25 @@ class Login extends Controller {
 
         $uname = input('uname');
         $pwd  = MD5(input('password'));
-        $field = ['uname','phone','email'];
         $user = Db::name('user')
                     ->where('uname|phone|email','eq',$uname)
                     ->find();
         if (!$user || $user['pwd'] != $pwd) {
             $this->error('用户名或密码错误!','Login/index');
+        } elseif ($user['state'] == 0) {
+            $this->error('当前用户暂未激活，请稍后再试!','Index/index');
         } else {
-            $this->success('登录成功!',U('User/index'));
+            $request = Request::instance();
+            $data = [
+                'last_ip' => $request->ip(),
+                'last_time' => date('Y-m-d H:i:s'),
+            ];
+            $result = Db::name('user')->where('id='.$user['id'])->update($data);
+            //设置session
+            session('uid',$user['id']);
+            session('uname',$user['uname']);
+
+            $this->success('登录成功!','User/index');
         }
 
         
