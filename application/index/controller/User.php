@@ -11,6 +11,8 @@
 namespace app\index\controller;
 
 use think\Controller;
+use app\index\model\UserModel;
+
 /**
  * UserController
  * 用户模块
@@ -24,6 +26,10 @@ class User extends Controller {
 	 * @return [type] [description]
 	 */
 	public function index() {
+		$uid = session('uid');
+		$userModel = new UserModel();
+		$data = $userModel->userInfo($uid);
+		$this->assign('data',$data);
 		return $this->fetch();
 	}
 
@@ -33,7 +39,38 @@ class User extends Controller {
 	 * @return [type] [description]
 	 */
 	public function information() {
+		$uid = session('uid');
+		$userModel = new UserModel();
+		$data = $userModel->userInfo($uid);
+		$this->assign('data',$data);
 		return $this->fetch();
+	}
+
+	public function saveInfo() {
+		$id = session('uid');
+		$file = request()->file('images');
+		if(!$file) {
+			$this->error('请选择文件!','User/information');
+		}
+		$path = ROOT_PATH . 'public' . DS .'index/uploads/user';
+		$user_images = $file->validate(['size'=>10485760,'ext'=>'jpg,png,jpeg'])->move($path);
+		if ($user_images) {
+            // 成功上传后 获取上传信息
+            $date_path = date('Ymd');
+            $images = $date_path.'/'.$user_images->getFileName();
+            var_dump($images);
+            die();
+		}else{
+            // 上传失败获取错误信息
+            echo $file->getError();
+        }
+        $data = [
+        	'nickname'	=> input('nickname'),
+        	'last_ip'	=> $request->ip(),
+            'last_time' => date('Y-m-d H:i:s'),
+            'images'	=> '__PUBLIC__/index/uploads/user/'.$images, 
+        ];
+        var_dump($data);
 	}
 
 	/**
@@ -89,6 +126,10 @@ class User extends Controller {
 	 * @return [type] [description]
 	 */
 	public function news() {
+		return $this->fetch();
+	}
+
+	public function newsDetail() {
 		return $this->fetch();
 	}
 

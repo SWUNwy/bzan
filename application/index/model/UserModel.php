@@ -12,9 +12,27 @@ namespace app\index\model;
 
 use think\Model;
 use think\Db;
-
+use think\Request;
+/**
+ * UserModel
+ * 用户模型
+ * @author wyecho <[paul.wang@hotstaro2o.com]>
+ * @date(2018-4-19)
+ */
 class UserModel extends Model {
 
-	public function index() {}
+	protected $table = ('user');
+
+	/**
+	 * 用户信息数据查询
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function userInfo($id) {
+		$data = Db::name($this->table)
+				->where('uid='.$id)
+				->find();
+		return $data;
+	}
 
 }

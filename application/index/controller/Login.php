@@ -12,7 +12,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Db;
-use \think\Request;
+use think\Request;
 /**
  * IoginController
  * 商城用户登录模块
@@ -52,9 +52,9 @@ class Login extends Controller {
                 'last_ip' => $request->ip(),
                 'last_time' => date('Y-m-d H:i:s'),
             ];
-            $result = Db::name('user')->where('id='.$user['id'])->update($data);
+            $result = Db::name('user')->where('uid='.$user['uid'])->update($data);
             //设置session
-            session('uid',$user['id']);
+            session('uid',$user['uid']);
             session('uname',$user['uname']);
 
             $this->success('登录成功!','User/index');

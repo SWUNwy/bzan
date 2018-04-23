@@ -35,20 +35,7 @@
         </header>
 
         <div class="nav-table">
-            <div class="long-title"><span class="all-goods">全部分类</span></div>
-            <div class="nav-cont">
-                <ul>
-                    <li class="index"><a href="#">首页</a></li>
-                    <li class="qc"><a href="#">闪购</a></li>
-                    <li class="qc"><a href="#">限时抢</a></li>
-                    <li class="qc"><a href="#">团购</a></li>
-                    <li class="qc last"><a href="#">大包装</a></li>
-                </ul>
-                <div class="nav-extra">
-                    <i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
-                    <i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-                </div>
-            </div>
+            {include file="common/topTitle" /}
         </div>
         <b class="line"></b>
         <div class="center">
@@ -61,33 +48,33 @@
                             <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
                         </div>
                         <hr/>
-
+                        
+                        <form class="am-form am-form-horizontal" action="{:url('User/saveInfo')}" method="post" enctype="multipart/form-data">
                         <!--头像 -->
-                        <div class="user-infoPic">
+                            <div class="user-infoPic">
 
-                            <div class="filePic">
-                                <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-                                <img class="am-circle am-img-thumbnail" src="__PUBLIC__/index/images/getAvatar.do.jpg" alt="" />
-                            </div>
+                                <div class="filePic">
+                                    <input type="file" name="images" id="images" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
+                                    <img class="am-circle am-img-thumbnail" src="__PUBLIC__/index/images/user.jpg" alt="" />
+                                </div>
 
-                            <p class="am-form-help">头像</p>
+                                <p class="am-form-help">头像</p>
 
-                            <div class="info-m">
-                                <div><b>用户名：<i>小叮当</i></b></div>
-                                <div class="vip">
-                                    <span></span><a href="#">会员专享</a>
+                                <div class="info-m">
+                                    <div><b>用户名：<i>{$data.uname}</i></b></div>
+                                    <div class="vip">
+                                        <span></span><a href="">会员专享</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!--个人信息 -->
-                        <div class="info-main">
-                            <form class="am-form am-form-horizontal">
+                            <!--个人信息 -->
+                            <div class="info-main">
 
                                 <div class="am-form-group">
                                     <label for="user-name2" class="am-form-label">昵称</label>
                                     <div class="am-form-content">
-                                        <input type="text" id="user-name2" placeholder="nickname">
+                                        <input type="text" id="nickname" name="nickname" placeholder="昵称">
                                         <small>昵称长度不能超过40个汉字</small>
                                     </div>
                                 </div>
@@ -95,12 +82,12 @@
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-form-label">姓名</label>
                                     <div class="am-form-content">
-                                        <input type="text" id="user-name2" placeholder="name">
+                                        <input type="text" id="uname" name="uname" placeholder="用户名">
 
                                     </div>
                                 </div>
 
-                                <div class="am-form-group">
+<!--                                 <div class="am-form-group">
                                     <label class="am-form-label">性别</label>
                                     <div class="am-form-content sex">
                                         <label class="am-radio-inline">
@@ -113,48 +100,23 @@
                                             <input type="radio" name="radio10" value="secret" data-am-ucheck> 保密
                                         </label>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="am-form-group">
-                                    <label for="user-birth" class="am-form-label">生日</label>
-                                    <div class="am-form-content birth">
-                                        <div class="birth-select">
-                                            <select data-am-selected>
-                                                <option value="a">2015</option>
-                                                <option value="b">1987</option>
-                                            </select>
-                                            <em>年</em>
-                                        </div>
-                                        <div class="birth-select2">
-                                            <select data-am-selected>
-                                                <option value="a">12</option>
-                                                <option value="b">8</option>
-                                            </select>
-                                            <em>月</em></div>
-                                        <div class="birth-select2">
-                                            <select data-am-selected>
-                                                <option value="a">21</option>
-                                                <option value="b">23</option>
-                                            </select>
-                                            <em>日</em></div>
-                                    </div>
-
-                                </div>
                                 <div class="am-form-group">
                                     <label for="user-phone" class="am-form-label">电话</label>
                                     <div class="am-form-content">
-                                        <input id="user-phone" placeholder="telephonenumber" type="tel">
+                                        <input id="phone" name="phone" placeholder="电话号码" type="tel">
 
                                     </div>
                                 </div>
                                 <div class="am-form-group">
                                     <label for="user-email" class="am-form-label">电子邮件</label>
                                     <div class="am-form-content">
-                                        <input id="user-email" placeholder="Email" type="email">
+                                        <input id="email" name="email" placeholder="电子邮件" type="email">
 
                                     </div>
                                 </div>
-                                <div class="am-form-group address">
+<!--                                 <div class="am-form-group address">
                                     <label for="user-address" class="am-form-label">收货地址</label>
                                     <div class="am-form-content address">
                                         <a href="address.html">
@@ -179,13 +141,13 @@
                                         </a>
 
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="info-btn">
-                                    <div class="am-btn am-btn-danger">保存修改</div>
+                                    <div class="am-btn am-btn-danger"><input name="保存修改" type="submit" class="am-btn am-btn-danger" value="&nbsp;保&nbsp;存&nbsp;修&nbsp;改&nbsp;&nbsp;"></div>
                                 </div>
 
-                            </form>
-                        </div>
+                            </div>
+                        </form>
 
                     </div>
 

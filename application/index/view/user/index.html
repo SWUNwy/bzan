@@ -34,20 +34,7 @@
         </header>
 
         <div class="nav-table">
-            <div class="long-title"><span class="all-goods">全部分类</span></div>
-            <div class="nav-cont">
-                <ul>
-                    <li class="index"><a href="#">首页</a></li>
-                    <li class="qc"><a href="#">闪购</a></li>
-                    <li class="qc"><a href="#">限时抢</a></li>
-                    <li class="qc"><a href="#">团购</a></li>
-                    <li class="qc last"><a href="#">大包装</a></li>
-                </ul>
-                <div class="nav-extra">
-                    <i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
-                    <i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-                </div>
-            </div>
+            {include file="common/topTitle" /}
         </div>
         <b class="line"></b>
         <div class="center">
@@ -64,16 +51,16 @@
                                     </a>
                                     <div class="m-baseinfo">
                                         <a class="m-pic" href="information.html">
-                                            <img src="__PUBLIC__/index/images/getAvatar.do.jpg">
+                                            <img src="__PUBLIC__/index/images/user.jpg">
                                         </a>
                                         <div class="m-info">
-                                            <em class="s-name">小叮当</em>
-                                            <div class="vip1"><a href="#"><span></span><em>会员专享</em></a></div>
-                                            <div class="safeText"><a href="safety.html">账户安全:<em style="margin-left:20px ;">60</em>分</a>
+                                            <em class="s-name">{$data.uname}</em>
+                                            <!-- <div class="vip1"><a href=""><span></span><em>会员专享</em></a></div> -->
+                                            <div class="safeText"><a href="{:url('User/safety')}">账户安全:<em style="margin-left:20px ;">60</em>分</a>
                                                 <div class="progressBar"><span style="left: -95px;" class="progress"></span></div>
                                             </div>
                                             <div class="m-address">
-                                                <a href="address.html" class="i-trigger">收货地址<i class="am-icon-angle-right" style="padding-left:5px ;"></i></a>
+                                                <a href="{:url('User/addressList')}" class="i-trigger">收货地址<i class="am-icon-angle-right" style="padding-left:5px ;"></i></a>
                                             </div>
                                         </div>
                                     </div>
