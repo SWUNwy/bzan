@@ -37,20 +37,18 @@
                         <div class="am-tabs-bd">
 
                             <div class="am-tab-panel">
-                                <form method="post">
+                                <form action="{:url('Register/register')}" method="post">
                                     <div class="user-phone">
                                         <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-                                        <input type="tel" name="" id="phone" placeholder="请输入手机号">
-                                    </div>																			
-<!--                                     <div class="verification">
-                                        <label for="code"><i class="am-icon-code-fork"></i></label>
-                                        <input type="tel" name="" id="code" placeholder="请输入验证码">
-                                        <a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-                                        <span id="dyMobileButton">获取</span></a>
-                                    </div> -->
+                                        <input type="tel" name="phone" id="phone" placeholder="请输入手机号">
+                                    </div>		
+                                    <div class="user-name">
+                                        <label for="user"><i class="am-icon-user"></i></label>
+                                        <input type="text" name="uname" id="uname" placeholder="用户名">
+                                    </div>
                                     <div class="user-pass">
                                         <label for="password"><i class="am-icon-lock"></i></label>
-                                        <input type="password" name="" id="password" placeholder="设置密码">
+                                        <input type="password" name="password" id="password" placeholder="设置密码">
                                     </div>										
                                     <div class="verification">
                                         <label for="code"><i class="am-icon-code-fork"></i></label>
