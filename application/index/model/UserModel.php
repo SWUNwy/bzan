@@ -12,7 +12,6 @@ namespace app\index\model;
 
 use think\Model;
 use think\Db;
-use think\Request;
 /**
  * UserModel
  * 用户模型
