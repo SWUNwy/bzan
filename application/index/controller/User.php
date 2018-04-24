@@ -56,7 +56,7 @@ class User extends Controller {
 	        	'last_ip'	=> $request->ip(),
 	            'last_time' => date('Y-m-d H:i:s'),
 	        ];
-	        var_dump($data);
+	        // var_dump($data);
 	        $userModel = new UserModel();
 	        $result = $userModel->saveInfo($id,$data);
 	        if ($result) {
@@ -82,7 +82,7 @@ class User extends Controller {
 	            'last_time' => date('Y-m-d H:i:s'),
 	            'images'	=> '__PUBLIC__/index/uploads/user/'.$images, 
 	        ];
-	        var_dump($data);
+	        // var_dump($data);
 	        $userModel = new UserModel();
 	        $result = $userModel->saveInfo($id,$data);
 	        if ($result) {

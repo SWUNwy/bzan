@@ -34,4 +34,15 @@ class UserModel extends Model {
 		return $data;
 	}
 
+	public function saveInfo($id='',$data='') {
+		$result = Db::name($this->table)
+					->where('uid='.$id)
+					->update($data);
+		if ($result) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
