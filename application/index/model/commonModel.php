@@ -15,11 +15,27 @@ use think\Db;
 
 /**
  * CommonController
- * 商品数据处理模型
+ * 公用Model
  * @author wyecho <[paul.wang@hotstaro2o.com]>
  * @date(2018-4-19)
  */
 
 class commonModel extends Model {
+
+	/**
+	 * 用户注册
+	 * @param  string $data [description]    用户注册信息数据
+	 * @return [type]       [description]    返回用户注册成功后的uid
+	 */
+	public function userReg($data='') {
+		$table = Db::name('user');
+		$result = $table->insertGetId($data);
+		if ($result) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
 
 }

@@ -13,6 +13,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 use app\index\validate\RegValidate;
+use app\index\model\commonModel;
 /**
  * IndexController
  * 商城用户注册模块
@@ -33,7 +34,8 @@ class Register extends Controller {
 		$data = [
 			'phone' => input('phone'),
 			'uname' => input('uname'),
-			'pwd'	=> input('password'),
+			'pwd'	=> MD5(input('password')),
+			'add_time' => date('Y-m-d H:i:s'),
 		];
 
 		$validate = validate('RegValidate');
@@ -55,9 +57,12 @@ class Register extends Controller {
 		}
 
 		$reg = new commonModel();
-		$result = $reg->userReg($data,$this->table);
-		if (condition) {
-			# code...
+		$result = $reg->userReg($data);
+		if ($result) {
+			session('uid',$result);
+			$this->success('注册成功!','User/index');
+		} else {
+			$this->error('注册失败!','Register/index');
 		}
 		
 	}

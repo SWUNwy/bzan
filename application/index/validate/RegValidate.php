@@ -21,7 +21,7 @@ class RegValidate extends Validate {
 	protected $rule = [
 		'phone' => 'require|min:11|max:11',
 		'uname' => 'require|min:2',
-		'password' => 'require',
+		'pwd' => 'require',
 	];
 
 	/**
@@ -34,7 +34,7 @@ class RegValidate extends Validate {
 		'phone.max'		=> '电话号码不能超过11位',
 		'uname.require' => '用户名必填',
 		'uname.min'	 	=> '用户名不能少于两个字',
-		'password'		=> '密码必填',
+		'pwd'		=> '密码必填',
 	];	
 
 }
