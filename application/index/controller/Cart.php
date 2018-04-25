@@ -18,9 +18,9 @@ use think\Controller;
  * @date(2018-1-19)
  */
 
-class Cart extends Controller {
+class Cart extends Common {
 
-	public function userCart() {
+	public function index() {
 		return $this->fetch();
 	}
 

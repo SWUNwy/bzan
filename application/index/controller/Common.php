@@ -22,13 +22,18 @@ use \think\Request;
  */
 class Common extends Controller {
 
+
+	/**
+	 * 初始化方法，用于判断用户是否登录，拥有的权限
+	 * @return [type] [description]
+	 */
 	public function _initialize() {
         $uid = session('uid');
         if(!isset($uid)){
           $uid = "";
         }
         if($uid == null || $uid == "" || $uid == "null" || $uid == 0){
-          return $this->error('请登录！','Login/index');
+          return $this->error('请先登录！','Login/index');
         }
     }
 

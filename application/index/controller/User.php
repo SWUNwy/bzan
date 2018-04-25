@@ -54,6 +54,7 @@ class User extends Common {
 			$request = Request::instance();
 	        $data = [
 	        	'nickname'	=> input('nickname'),
+	        	'email'		=> input('email'),
 	        	'last_ip'	=> $request->ip(),
 	            'last_time' => date('Y-m-d H:i:s'),
 	        ];
@@ -79,6 +80,7 @@ class User extends Common {
 	        $request = Request::instance();
 	        $data = [
 	        	'nickname'	=> input('nickname'),
+	        	'email'		=> input('email'),
 	        	'last_ip'	=> $request->ip(),
 	            'last_time' => date('Y-m-d H:i:s'),
 	            'images'	=> '__PUBLIC__/index/uploads/user/'.$images, 
