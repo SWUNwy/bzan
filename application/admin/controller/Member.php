@@ -49,4 +49,18 @@ class Member extends Controller {
 		return $this->fetch();
 	}
 
+
+	public function memberAdd() {
+		$data = [
+			'uname' => input('uname'),
+			'nickname' => input('nickname'),
+			'pwd'	=> input('password'),
+			'eamil'	=> input('email'),
+			'phone' => input('phone'),
+			'grade'	=> input('grade'),
+			'add_time' => date('Y-m-d H:i:s'),
+		];
+
+	}
+
 }
