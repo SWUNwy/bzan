@@ -89,7 +89,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            {volist name="data" id="vo"}
+                                {volist name="data" id="vo"}
                                 <tr>
                                     <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
                                     <td>{$vo.uid}</td>
@@ -107,7 +107,7 @@
                                         <a title="删除" href="javascript:;"  onclick="member_del(this, '1')" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
                                     </td>
                                 </tr>
-                            {/volist}
+                                {/volist}
                             </tbody>
                         </table>
                     </div>
@@ -116,25 +116,33 @@
         </div>
         <!--添加用户图层-->
         <div class="add_menber" id="add_menber_style" style="display:none">
-
-            <ul class=" page-content">
-                <li><label class="label_name">用&nbsp;&nbsp;户 &nbsp;名：</label><span class="add_name"><input value="" name="用户名" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-                <li><label class="label_name">真实姓名：</label><span class="add_name"><input name="真实姓名" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-                <li><label class="label_name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label><span class="add_name">
-                        <label><input name="form-field-radio" type="radio" checked="checked" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;&nbsp;
-                        <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">女</span></label>&nbsp;&nbsp;&nbsp;
-                        <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">保密</span></label>
-                    </span>
-                    <div class="prompt r_f"></div>
-                </li>
-                <li><label class="label_name">固定电话：</label><span class="add_name"><input name="固定电话" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-                <li><label class="label_name">移动电话：</label><span class="add_name"><input name="移动电话" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-                <li><label class="label_name">电子邮箱：</label><span class="add_name"><input name="电子邮箱" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-                <li class="adderss"><label class="label_name">家庭住址：</label><span class="add_name"><input name="家庭住址" type="text"  class="text_add" style=" width:350px"/></span><div class="prompt r_f"></div></li>
-                <li><label class="label_name">状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</label><span class="add_name">
+            <form action="" method="post">
+                <ul class=" page-content">
+                    <li><label class="label_name">用&nbsp;&nbsp;户 &nbsp;名：</label><span class="add_name"><input value="" name="用户名" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+                    <li><label class="label_name">昵称：</label><span class="add_name"><input name="nickname" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+<!--                    <li><label class="label_name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label><span class="add_name">
+                            <label><input name="form-field-radio" type="radio" checked="checked" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;&nbsp;
+                            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">女</span></label>&nbsp;&nbsp;&nbsp;
+                            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">保密</span></label>
+                        </span>
+                        <div class="prompt r_f"></div>
+                    </li>-->
+                    <li>
+                        <label class="label_name">电话：</label><span class="add_name"><input name="phone" type="text"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">电子邮箱：</label><span class="add_name"><input name="eamil" type="text"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">密码：</label><span class="add_name"><input name="password" type="password"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</label><span class="add_name">
                         <label><input name="form-field-radio1" type="radio" checked="checked" class="ace"><span class="lbl">开启</span></label>&nbsp;&nbsp;&nbsp;
-                        <label><input name="form-field-radio1"type="radio" class="ace"><span class="lbl">关闭</span></label></span><div class="prompt r_f"></div></li>
-            </ul>
+                        <label><input name="form-field-radio1"type="radio" class="ace"><span class="lbl">关闭</span></label></span><div class="prompt r_f"></div>
+                    </li>
+                </ul>
+            </form>
         </div>
     </body>
 </html>
