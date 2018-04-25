@@ -2,9 +2,9 @@
                     <div class="am-container header">
                         <ul class="message-l">
                             <div class="topMessage">
-                                <div class="menu-hd">
-                                    <a href="{:url('Login/index')}" target="_top" class="h">亲，请登录</a>
-                                    <strong>|</strong>
+                                <div class="menu-hd" style="{$Think.session.uid ? 'display:none' : 'display:block' }">
+                                    <a href="{:url('Login/index')}" target="_top" class="h">亲,请登录</a>
+                                    <strong>&nbsp;|&nbsp;</strong>
                                     <a href="{:url('Register/index')}" target="_top">免费注册</a>
                                 </div>
                             </div>
@@ -17,7 +17,7 @@
                                 <div class="menu-hd MyShangcheng"><a href="{:url('User/index')}" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
                                 </div>
                             </div>
-                            <div id="outLogin" class="topMessage sign-out">
+                            <div id="outLogin" class="topMessage sign-out" style="{$Think.session.uid ? 'display:block' : 'display:none' }">
                                 <div class="menu-hd"><a id="mc-menu-hd" href="{:url('Common/signOut')}" target="_top"><i class="am-icon-sign-out  am-icon-fw"></i><span>退出</span></a></div>
                             </div>
                             <div class="topMessage mini-cart">

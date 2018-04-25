@@ -12,6 +12,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use app\index\model\UserModel;
+use app\index\controller\Common;
 use think\Request;
 /**
  * UserController
@@ -19,7 +20,7 @@ use think\Request;
  * @author wyecho <[paul.wang@hotstaro2o.com]>
  * @date(2018-1-19)
  */
-class User extends Controller {
+class User extends Common {
 
 	/**
 	 * 用户中心首页
