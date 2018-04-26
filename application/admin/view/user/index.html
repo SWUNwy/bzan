@@ -104,7 +104,7 @@
                                     <td class="td-manage">
                                         <a onClick=""  href="{:url('user/userState',['uid'=>$vo['uid'],'state'=>$vo['state']])}" title="{$vo.state==0 ? '激活' : '锁定'}"  class="{$vo.state==0 ? 'btn btn-xs btn-success' : 'btn btn-xs btn'}"><i class="icon-ok bigger-120"></i></a>
                                         <a title="编辑" onclick="member_edit('550')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
-                                        <a title="删除" href="javascript:;"  onclick="member_del(this, '1')" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
+                                        <a title="删除" href="{:url('User/userDelete',['uid'=>$vo['uid']])}" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
                                     </td>
                                 </tr>
                                 {/volist}

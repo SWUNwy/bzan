@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-04-20 18:07:58
+Date: 2018-04-26 17:31:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -465,19 +465,23 @@ INSERT INTO `bz_system` VALUES ('1', 'bz', '__PUBLIC__/admin/uploads/system/2018
 -- ----------------------------
 DROP TABLE IF EXISTS `bz_user`;
 CREATE TABLE `bz_user` (
-  `id` int(16) NOT NULL AUTO_INCREMENT COMMENT '用户id，自增主键',
+  `uid` int(16) NOT NULL AUTO_INCREMENT COMMENT '用户id，自增主键',
   `uname` varchar(16) NOT NULL COMMENT '用户名',
+  `nickname` varchar(16) NOT NULL COMMENT '用户昵称',
   `pwd` varchar(64) NOT NULL COMMENT '密码',
   `phone` varchar(16) NOT NULL COMMENT '手机号码',
   `email` varchar(16) NOT NULL COMMENT '邮箱',
+  `grade` int(3) DEFAULT NULL COMMENT '会员等级',
   `last_ip` varchar(64) NOT NULL COMMENT '最后登录IP',
-  `img` varchar(64) DEFAULT NULL COMMENT '头像地址',
+  `images` varchar(64) DEFAULT NULL COMMENT '头像地址',
   `add_time` datetime DEFAULT NULL COMMENT '首次添加时间',
   `last_time` datetime DEFAULT NULL COMMENT '最后登录时间',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `state` int(1) DEFAULT '0' COMMENT '用户状态,0为未激活，1为激活',
+  PRIMARY KEY (`uid`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bz_user
 -- ----------------------------
-INSERT INTO `bz_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456789', '123@123.com', '', null, null, null);
+INSERT INTO `bz_user` VALUES ('1', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', '12345678900', '123@123.com', null, '0.0.0.0', '__PUBLIC__/index/uploads/user/20180424/ea3e4efbf2279c9ecc436c5f4', '2018-04-24 16:37:24', '2018-04-25 15:14:58', '1');
+INSERT INTO `bz_user` VALUES ('3', 'wyu', 'WyEcho', '21232f297a57a5a743894a0e4a801fc3', '18782253525', 'wyecho@wyecho.co', null, '0.0.0.0', null, '2018-04-25 10:17:27', '2018-04-25 16:39:10', '1');

@@ -86,4 +86,19 @@ class User extends Controller {
 		}
 	}
 
+	/**
+	 * 删除用户
+	 * @return [type] [description]
+	 */
+	public function userDelete() {
+		$uid = input('uid');
+		$userModel = new userModel();
+		$result = $userModel->userDelete($uid);
+		if ($result) {
+			$this->success('操作成功!','User/index');
+		} else {
+			$this->error('操作失败!','User/index');
+		}
+	}
+
 }

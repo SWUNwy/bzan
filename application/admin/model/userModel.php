@@ -32,7 +32,11 @@ class userModel extends Model {
 		return $data; 
 	}
 
-
+	/**
+	 * 会员详细信息
+	 * @param  string $uid [description]
+	 * @return [type]      [description]
+	 */
 	public function userInfo($uid='') {
 		$data = Db::name($this->user)
 					->where('uid='.$uid)
@@ -47,7 +51,12 @@ class userModel extends Model {
 	public function userAdd() {}
 
 
-
+	/**
+	 * 会员状态操作
+	 * @param  [type] $id    会员id
+	 * @param  [type] $state 会员状态
+	 * @return [type]        返回操作结果
+	 */
 	public function userState($id,$state) {
 		$db = Db::name($this->user);
 		switch ($state) {
@@ -65,5 +74,24 @@ class userModel extends Model {
 			return false;
 		}
 	}
+
+
+	/**
+	 * 删除会员
+	 * @param  [type] $id 会员id
+	 * @return [type]     返回操作结果
+	 */
+	public function userDelete($id) {
+		$result = Db::name('user')
+					->where('uid='.$id)
+					->delete();
+		if ($result) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+
 
 }
