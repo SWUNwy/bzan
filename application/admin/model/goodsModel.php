@@ -13,37 +13,21 @@ namespace app\admin\model;
 use think\Model;
 use think\Db;
 /**
- * userModel
+ * goodsModel
  * 会员管理模型
  * @author wyecho <[paul.wang@hotstaro2o.com]>
- * @date(2018-1-19)
+ * @date(2018-4-19)
  */
-
-class userModel extends Model {
+class goodsModel extends Model {
 	
-	protected $user = 'user';
+	protected $table = 'goods';
 
 	/**
-	 * 获取所有会员数据
-	 * @return [type] [description]
+	 * [goods_list description]    商品数据列表
+	 * @return [type] [description]    返回所有数据
 	 */
-	public function userList() {
-		$data = Db::name($this->user)->select();
-		return $data; 
+	public function goodsList() {
+		$data = Db::name($this->table)->select();
+		return $data;
 	}
-
-
-	public function userInfo($uid='') {
-		$data = Db::name($this->user)
-					->where('uid='.$uid)
-					->find();
-		if ($data) {
-			return $data;
-		} else {
-			return false;
-		}
-	}
-
-	public function userAdd() {}
-
 }
