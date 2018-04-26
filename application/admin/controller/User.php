@@ -70,4 +70,20 @@ class User extends Controller {
 
 	}
 
+	/**
+	 * 用户状态操作
+	 * @return [type] [description]
+	 */
+	public function userState() {
+		$uid = input('uid');
+		$state = input('state');
+		$userModel = new userModel();
+		$result = $userModel->userState($uid,$state);
+		if ($result) {
+			$this->success('操作成功!','User/index');
+		} else {
+			$this->error('操作失败!','User/index');
+		}
+	}
+
 }

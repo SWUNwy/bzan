@@ -46,4 +46,24 @@ class userModel extends Model {
 
 	public function userAdd() {}
 
+
+
+	public function userState($id,$state) {
+		$db = Db::name($this->user);
+		switch ($state) {
+			case '1':
+			$result = $db->where(['uid'=>$id])
+						 ->update(['state'=>0]);
+				return $result;
+				break;
+			case '0':
+			$result = $db->where(['uid'=>$id])
+						 ->update(['state'=>1]);
+				return $result;
+				break;
+			default:
+			return false;
+		}
+	}
+
 }
