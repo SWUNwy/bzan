@@ -19,7 +19,7 @@ use think\Db;
  * @date(2018-1-19)
  */
 
-class MemberModel extends Model {
+class userModel extends Model {
 	
 	protected $user = 'user';
 
@@ -27,13 +27,13 @@ class MemberModel extends Model {
 	 * 获取所有会员数据
 	 * @return [type] [description]
 	 */
-	public function memberList() {
+	public function userList() {
 		$data = Db::name($this->user)->select();
 		return $data; 
 	}
 
 
-	public function memberInfo($uid='') {
+	public function userInfo($uid='') {
 		$data = Db::name($this->user)
 					->where('uid='.$uid)
 					->find();
@@ -43,5 +43,7 @@ class MemberModel extends Model {
 			return false;
 		}
 	}
+
+	public function userAdd() {}
 
 }
