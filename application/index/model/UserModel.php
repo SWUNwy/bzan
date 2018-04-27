@@ -18,7 +18,7 @@ use think\Db;
  * @author wyecho <[paul.wang@hotstaro2o.com]>
  * @date(2018-4-19)
  */
-class UserModel extends Model {
+class userModel extends Model {
 
 	protected $table = ('user');
 

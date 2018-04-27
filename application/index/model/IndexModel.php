@@ -13,7 +13,7 @@ namespace app\index\model;
 use think\Model;
 use think\Db;
 
-class IndexModel extends Model {
+class indexModel extends Model {
 
 	public function index() {}
 

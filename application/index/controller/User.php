@@ -11,7 +11,7 @@
 namespace app\index\controller;
 
 use think\Controller;
-use app\index\model\UserModel;
+use app\index\model\userModel;
 use app\index\controller\Common;
 use think\Request;
 /**
@@ -28,7 +28,7 @@ class User extends Common {
 	 */
 	public function index() {
 		$uid = session('uid');
-		$userModel = new UserModel();
+		$userModel = new userModel();
 		$data = $userModel->userInfo($uid);
 		$this->assign('data',$data);
 		return $this->fetch();
@@ -41,7 +41,7 @@ class User extends Common {
 	 */
 	public function information() {
 		$uid = session('uid');
-		$userModel = new UserModel();
+		$userModel = new userModel();
 		$data = $userModel->userInfo($uid);
 		$this->assign('data',$data);
 		return $this->fetch();
@@ -59,7 +59,7 @@ class User extends Common {
 	            'last_time' => date('Y-m-d H:i:s'),
 	        ];
 	        // var_dump($data);
-	        $userModel = new UserModel();
+	        $userModel = new userModel();
 	        $result = $userModel->saveInfo($id,$data);
 	        if ($result) {
 	         	$this->success('操作成功!','User/information');
@@ -86,7 +86,7 @@ class User extends Common {
 	            'images'	=> '__PUBLIC__/index/uploads/user/'.$images, 
 	        ];
 	        // var_dump($data);
-	        $userModel = new UserModel();
+	        $userModel = new userModel();
 	        $result = $userModel->saveInfo($id,$data);
 	        if ($result) {
 	         	$this->success('操作成功!','User/information');
@@ -112,6 +112,16 @@ class User extends Common {
 	public function pwdEdit() {
 		return $this->fetch();
 	}
+
+	/**
+	 * 用户密码修改
+	 * @return [type] [description]
+	 */
+	public function pwdSave() {
+		$uid = input('uid');
+		var_dump($uid);
+	}
+
 	/**
 	 * 用户地址列表
 	 * @return [type] [description]
