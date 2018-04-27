@@ -93,7 +93,7 @@
                                 <tr>
                                     <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
                                     <td>{$vo.uid}</td>
-                                    <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三', '{:url('User/userDetail',['uid'=>$vo['uid']])}', '10001', '500', '400')">{$vo.uname}</u></td>
+                                    <td><u style="cursor:pointer" class="text-primary" onclick="member_show('{$vo.uname}', '{:url('User/userDetail',['uid'=>$vo['uid']])}', '10001', '500', '400')">{$vo.uname}</u></td>
                                     <td>{$vo.nickname}</td>
                                     <td>{$vo.phone}</td>
                                     <td>{$vo.email}</td>
@@ -103,7 +103,7 @@
                                     <td class="td-status"><span class="{$vo.state==1 ? 'label label-success' : 'radius label label-defaunt radius'}">{$vo.state==1 ? '已激活' : '未激活'}</span></td>
                                     <td class="td-manage">
                                         <a onClick=""  href="{:url('user/userState',['uid'=>$vo['uid'],'state'=>$vo['state']])}" title="{$vo.state==0 ? '激活' : '锁定'}"  class="{$vo.state==0 ? 'btn btn-xs btn-success' : 'btn btn-xs btn'}"><i class="icon-ok bigger-120"></i></a>
-                                        <a title="编辑" onclick="member_edit('550')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
+                                        <a title="编辑" onclick="member_show('{$vo.uname}', '{:url('User/userEdit',['uid'=>$vo['uid']])}', '10001', '500', '400')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120"></i></a> 
                                         <a title="删除" href="{:url('User/userDelete',['uid'=>$vo['uid']])}" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120"></i></a>
                                     </td>
                                 </tr>
@@ -116,7 +116,7 @@
         </div>
         <!--添加用户图层-->
         <div class="add_menber" id="add_menber_style" style="display:none">
-            <form action="{:url('Member/memberAdd')}" method="post">
+            <form action="{:url('User/userAdd')}" method="post">
                 <ul class=" page-content">
                     <li><label class="label_name">用&nbsp;户&nbsp;名：</label><span class="add_name"><input value="" name="uname" id="用户名" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
                     <li><label class="label_name">昵&nbsp;称：</label><span class="add_name"><input name="nickname" id="昵称" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
@@ -137,13 +137,48 @@
                         <label class="label_name">密&nbsp;码：</label><span class="add_name"><input name="password" id="密码" type="password"  class="text_add"/></span><div class="prompt r_f"></div>
                     </li>
                     <li>
-                        <label class="label_name">会&nbsp;员&nbsp;级&nbsp;别：</label><span class="add_name"><input name="grade" id="会员级别" type="password"  class="text_add"/></span><div class="prompt r_f"></div>
+                        <label class="label_name">会&nbsp;员&nbsp;级&nbsp;别：</label><span class="add_name"><input name="grade" id="会员级别" type="text"  class="text_add"/></span><div class="prompt r_f"></div>
                     </li>
                     <li>
                         <label class="label_name">状&nbsp;&nbsp;&nbsp;态：</label><span class="add_name">
                         <label><input name="state" value="1" type="radio" checked="checked" class="ace"><span class="lbl">激活</span></label>&nbsp;&nbsp;&nbsp;
                         <label><input name="state" value="0" type="radio" class="ace"><span class="lbl">锁定</span></label></span><div class="prompt r_f"></div>
                     </li>
+                    <input class="btn btn-primary radius" type="submit" id="Add_Administrator" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                </ul>
+            </form>
+        </div>
+        <!--修改用户图层-->
+        <div class="edit_menber" id="edit_menber_style" style="display:none">
+            <form action="{:url('User/userEdit')}" method="post">
+                <ul class=" page-content">
+                    <li><label class="label_name">用&nbsp;户&nbsp;名：</label><span class="add_name"><input value="" name="uname" id="用户名" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+                    <li><label class="label_name">昵&nbsp;称：</label><span class="add_name"><input name="nickname" id="昵称" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+<!--                    <li><label class="label_name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label><span class="add_name">
+                            <label><input name="form-field-radio" type="radio" checked="checked" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;&nbsp;
+                            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">女</span></label>&nbsp;&nbsp;&nbsp;
+                            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">保密</span></label>
+                        </span>
+                        <div class="prompt r_f"></div>
+                    </li>-->
+                    <li>
+                        <label class="label_name">电&nbsp;话：</label><span class="add_name"><input name="phone" id="电话" type="text"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">电&nbsp;子&nbsp;邮&nbsp;箱：</label><span class="add_name"><input name="eamil" id="邮箱" type="text"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">密&nbsp;码：</label><span class="add_name"><input name="password" id="密码" type="password"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">会&nbsp;员&nbsp;级&nbsp;别：</label><span class="add_name"><input name="grade" id="会员级别" type="text"  class="text_add"/></span><div class="prompt r_f"></div>
+                    </li>
+                    <li>
+                        <label class="label_name">状&nbsp;&nbsp;&nbsp;态：</label><span class="add_name">
+                        <label><input name="state" value="1" type="radio" checked="checked" class="ace"><span class="lbl">激活</span></label>&nbsp;&nbsp;&nbsp;
+                        <label><input name="state" value="0" type="radio" class="ace"><span class="lbl">锁定</span></label></span><div class="prompt r_f"></div>
+                    </li>
+                    <input class="btn btn-primary radius" type="submit" id="Add_Administrator" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
                 </ul>
             </form>
         </div>
@@ -152,7 +187,7 @@
 <script>
     jQuery(function ($) {
         var oTable1 = $('#sample-table').dataTable({
-            "aaSorting": [[1, "desc"]], //默认第几个排序
+            "aaSorting": [[1, "asc"]], //默认第几个排序
             "bStateSave": true, //状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
@@ -195,10 +230,11 @@
             shadeClose: true, //点击遮罩关闭层
             area: ['800px', ''],
             content: $('#add_menber_style'),
-            btn: ['提交', '取消'],
+            // btn: ['提交', '取消'],
             yes: function (index, layero) {
                 var num = 0;
                 var str = "";
+                var url = "{:url('User/userEdit')}"
                 $(".add_menber input[type$='text']").each(function (n) {
                     if ($(this).val() == "")
                     {
@@ -223,6 +259,7 @@
             }
         });
     });
+
     /*用户-查看*/
     function member_show(title, url, id, w, h) {
         layer_show(title, url + '#?=' + id, w, h);
@@ -247,23 +284,23 @@
         });
     }
     /*用户-编辑*/
-    function member_edit(id) {
+    function user_edit(id) {
         layer.open({
             type: 1,
             title: '修改用户信息',
             maxmin: true,
             shadeClose: false, //点击遮罩关闭层
             area: ['800px', ''],
-            content: $('#add_menber_style'),
-            btn: ['提交', '取消'],
+            content: $('#edit_menber_style'),
+            // btn: ['提交', '取消'],
             yes: function (index, layero) {
                 var num = 0;
                 var str = "";
-                $(".add_menber input[type$='text']").each(function (n) {
+                $(".edit_menber input[type$='text']").each(function (n) {
                     if ($(this).val() == "")
                     {
 
-                        layer.alert(str += "" + $(this).attr("name") + "不能为空！\r\n", {
+                        layer.alert(str += "" + $(this).attr("id") + "不能为空！\r\n", {
                             title: '提示框',
                             icon: 0,
                         });

@@ -626,6 +626,14 @@ body
 .member_content li .label_name { width:80px; text-align:right; float:left; line-height:30px;}
 .add_menber li .add_name{ float:left; margin-left:10px; line-height:30px;}
 .add_menber li .add_name .lbl{ top:-5px; left:10px;}
+/*****************************添加用户样式属性************************/
+.edit_menber{}
+.edit_menber li{ margin:10px 0px; height:40px; line-height:40px; float:left; width:50%}
+.edit_menber li.adderss{ width:100%}
+.edit_menber li .label_name,
+.member_content li .label_name { width:80px; text-align:right; float:left; line-height:30px;}
+.edit_menber li .add_name{ float:left; margin-left:10px; line-height:30px;}
+.edit_menber li .add_name .lbl{ top:-5px; left:10px;}
 /******用户信息********/
 .member_show{}
 .member_show .member_jbxx{background-color:#5bacb6; padding:10px;}

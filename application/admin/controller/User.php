@@ -55,13 +55,13 @@ class User extends Controller {
 			'uname' => input('uname'),
 			'nickname' => input('nickname'),
 			'pwd'	=> input('password'),
-			'eamil'	=> input('email'),
+			'email'	=> input('email'),
 			'phone' => input('phone'),
 			'grade'	=> input('grade'),
 			'add_time' => date('Y-m-d H:i:s'),
 		];
 		$userModel = new userModel();
-		$result = $userrModel->userAdd($data);
+		$result = $userModel->userAdd($data);
 		if ($result) {
 			$this->success('添加成功!','User/index');
 		} else {
@@ -100,5 +100,38 @@ class User extends Controller {
 			$this->error('操作失败!','User/index');
 		}
 	}
+
+	public function userEdit(){
+		$uid = input('uid');
+		$userModel = new userModel();
+		$data = $userModel->userInfo($uid);
+		$this->assign('data',$data);
+		return $this->fetch();
+	}
+
+	/**
+	 * 保存用户修改后的信息
+	 * @return [type] [description]
+	 */
+	public function userEditSave() {
+		$uid = input('uid');
+		$data = [
+			'uname' => input('uname'),
+			'nickname' => input('nickname'),
+			'pwd'	=> input('password'),
+			'email'	=> input('email'),
+			'phone' => input('phone'),
+			'grade'	=> input('grade'),
+			'add_time' => date('Y-m-d H:i:s'),
+		];
+		$userModel = new userModel();
+		$result = $userrModel->userEditSave($uid,$data);
+		if ($result) {
+			$this->success('修改成功!','User/index');
+		} else {
+			$this->error('修改失败!','User/index');
+		}
+	}
+
 
 }

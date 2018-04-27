@@ -48,7 +48,19 @@ class userModel extends Model {
 		}
 	}
 
-	public function userAdd() {}
+	/**
+	 * [userAdd description]
+	 * @param  [type] $data [description]
+	 * @return [type]       [description]
+	 */
+	public function userAdd($data) {
+		$result = Db::name('user')->insert($data);
+		if ($result) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 
 	/**
