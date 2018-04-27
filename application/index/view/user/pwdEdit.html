@@ -65,22 +65,22 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form action="{:url('User/pwdSave')}" class="am-form am-form-horizontal">
+					<form action="{:url('User/pwdSave')}" method="post" class="am-form am-form-horizontal">
 						<input name="uid" value="{$Think.session.uid}" type="hidden" />
 						<div class="am-form-group">
 							<label for="user-old-password" class="am-form-label">原密码</label>
 							<div class="am-form-content">
-								<input type="password" id="user-old-password" name="oldPwd" placeholder="请输入原登录密码">
+								<input type="password" id="user-old-password" name="oldPwd" id="oldPwd" placeholder="请输入原登录密码">
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-new-password" class="am-form-label">新密码</label>
 							<div class="am-form-content">
-								<input type="password" id="user-new-password" name="newPwd" placeholder="由数字、字母组合">
+								<input type="password" id="user-new-password" name="newPwd" id="newPwd" placeholder="由数字、字母组合">
 							</div>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger"><input name="保存修改" type="submit" class="am-btn am-btn-danger" value="&nbsp;保&nbsp;存&nbsp;修&nbsp;改&nbsp;&nbsp;"></div>
+							<div class="am-btn am-btn-danger"><input type="submit" class="am-btn am-btn-danger" value="&nbsp;保&nbsp;存&nbsp;修&nbsp;改&nbsp;&nbsp;"></div>
 						</div>
 
 					</form>

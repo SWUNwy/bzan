@@ -118,8 +118,24 @@ class User extends Common {
 	 * @return [type] [description]
 	 */
 	public function pwdSave() {
-		$uid = input('uid');
-		var_dump($uid);
+		$id = input('uid');
+		$userModel = new userModel();
+		$userInfo = $userModel->userInfo($id);
+		$oldPwd = Md5(input('oldPwd'));
+		$newPwd = Md5(input('newPwd'));
+		if ($oldPwd != $userInfo['pwd'] ) {
+			$this->error('原密码输入有误');
+		} elseif ($newPwd === $userInfo['pwd']) {
+			$this->error('新设置密码不能与原密码重复');
+		} else {
+			$result = $userModel->pwdSave($id,$newPwd);
+	        if ($result) {
+	         	$this->success('操作成功!','User/index');
+	         } else {
+	         	$this->error('操作失败!','User/index');
+	         }
+		}
+		
 	}
 
 	/**
