@@ -45,7 +45,7 @@ class User extends Controller {
 		$uid = input('uid');
 		$userModel = new userModel();
 		$info = $userModel->userInfo($uid);
-		$this->assign('info',$info); 
+		$this->assign('info',$info);
 		return $this->fetch();
 	}
 
@@ -54,7 +54,7 @@ class User extends Controller {
 		$data = [
 			'uname' => input('uname'),
 			'nickname' => input('nickname'),
-			'pwd'	=> input('password'),
+			'pwd'	=> MD5(input('password')),
 			'email'	=> input('email'),
 			'phone' => input('phone'),
 			'grade'	=> input('grade'),

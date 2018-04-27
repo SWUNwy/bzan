@@ -106,6 +106,13 @@ class User extends Common {
 	}
 
 	/**
+	 * 修改密码
+	 * @return [type] [description]
+	 */
+	public function pwdEdit() {
+		return $this->fetch();
+	}
+	/**
 	 * 用户地址列表
 	 * @return [type] [description]
 	 */
