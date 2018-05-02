@@ -190,5 +190,21 @@ class User extends Common {
 		return $this->fetch();
 	}
 
+	/**
+	 * 修改电话号码
+	 * @return [type] [description]
+	 */
+	public function modifyPhone() {
+		return $this->fetch();
+	}
+
+
+	/**
+	 * 身份验证
+	 * @return [type] [description]
+	 */
+	public function idcard() {
+		return $this->fetch();
+	}
 
 }
