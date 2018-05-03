@@ -45,60 +45,26 @@
                     </div>
                     <hr/>
                     <div class="authentication">
-                        <p class="tip">请填写您身份证上的真实信息，以用于报关审核</p>
-                        <div class="authenticationInfo">
-                            <p class="title">填写个人信息</p>
-
-                            <div class="am-form-group">
+                    <p class="tip">请填写您身份证上的真实信息，以用于报关审核</p>
+                    <form action="{:url('User/saveUname')}" method="post" class="am-form am-form-horizontal">
+                        <input type="hidden" name="uid" value="{$Think.session.uid}" />
+                        <div class="am-form-group">
                                 <label for="user-name" class="am-form-label">真实姓名</label>
                                 <div class="am-form-content">
-                                    <input type="text" id="user-name" placeholder="请输入您的真实姓名">
+                                    <input type="text" id="user-name" name="rname" placeholder="请输入您的真实姓名">
                                 </div>
                             </div>
                             <div class="am-form-group">
                                 <label for="user-IDcard" class="am-form-label">身份证号</label>
                                 <div class="am-form-content">
-                                    <input type="tel" id="user-IDcard" placeholder="请输入您的身份证信息">
+                                    <input type="tel" id="user-IDcard" name="idcard" placeholder="请输入您的身份证信息">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="authenticationPic">
-                            <p class="title">上传身份证照片</p>
-                            <p class="tip">请按要求上传身份证</p>
-                            <ul class="cardlist">
-                                <li>
-                                    <div class="cardPic">
-                                        <img src="__PUBLIC__/index/images/cardbg.jpg">
-                                        <div class="cardText"><i class="am-icon-plus"></i>
-                                            <p>正面照片</p>
-                                        </div>
-                                        <p class="titleText">身份证正面</p>
-                                    </div>
-                                    <div class="cardExample">
-                                        <img src="__PUBLIC__/index/images/cardbg.jpg">
-                                        <p class="titleText">示例</p>										
-                                    </div>
-
-                                </li>
-                                <li>
-                                    <div class="cardPic">
-                                        <img src="__PUBLIC__/index/images/cardbg.jpg">
-                                        <div class="cardText"><i class="am-icon-plus"></i>
-                                            <p>背面照片</p>
-                                        </div>
-                                        <p class="titleText">身份证背面</p>
-                                    </div>
-                                    <div class="cardExample">
-                                        <img src="__PUBLIC__/index/images/cardbg.jpg">
-                                        <p class="titleText">示例</p>										
-                                    </div>
-
-                                </li>
-                            </ul>
                         </div>
                         <div class="info-btn">
-                            <div class="am-btn am-btn-danger">提交</div>
+                            <div class="am-btn am-btn-danger"><input type="submit" class="am-btn am-btn-danger" value="&nbsp;提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交&nbsp;"></div>
                         </div>
+
+                    </form>
                     </div>
                 </div>
                 <!--底部-->
