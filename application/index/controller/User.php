@@ -143,6 +143,12 @@ class User extends Common {
 	 * @return [type] [description]
 	 */
 	public function addressList() {
+
+		$userModel = new userModel();
+		$data = $userModel->addressList();
+		var_dump($data);
+		die();
+
 		return $this->fetch();
 	}
 
@@ -218,5 +224,12 @@ class User extends Common {
          }
 	}
 
+	/**
+	 * 新增收货地址
+	 * @return [type] [description]
+	 */
+	public function addressAdd() {
+
+	}
 
 }

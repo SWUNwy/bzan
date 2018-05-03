@@ -88,4 +88,15 @@ class userModel extends Model {
 		}		
 	}
 
+
+	public function addressList() {
+		$data = Db::field('province.province_no,province.province_name,city.city_no,city.city_name,zone.zone_no,zone.zone_name')
+		->table(['bz_address_province'=>'province','bz_address_city'=>'city','bz_address_zone'=>'zone'])
+		->select();
+		return $data;		
+	}
+
+
+	public function addressAdd() {}
+
 }
