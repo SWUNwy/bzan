@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-04-26 17:31:17
+Date: 2018-05-03 14:16:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `bz_admin` (
   `last_time` datetime NOT NULL COMMENT '最后登录时间',
   `login_ip` varchar(256) NOT NULL COMMENT '登录IP',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bz_admin
@@ -468,20 +468,46 @@ CREATE TABLE `bz_user` (
   `uid` int(16) NOT NULL AUTO_INCREMENT COMMENT '用户id，自增主键',
   `uname` varchar(16) NOT NULL COMMENT '用户名',
   `nickname` varchar(16) NOT NULL COMMENT '用户昵称',
+  `real_name` varchar(16) DEFAULT NULL COMMENT '用户真实姓名',
+  `idcard` varchar(24) DEFAULT NULL COMMENT '用户身份证号码',
   `pwd` varchar(64) NOT NULL COMMENT '密码',
   `phone` varchar(16) NOT NULL COMMENT '手机号码',
-  `email` varchar(16) NOT NULL COMMENT '邮箱',
+  `email` varchar(16) DEFAULT NULL COMMENT '邮箱',
   `grade` int(3) DEFAULT NULL COMMENT '会员等级',
-  `last_ip` varchar(64) NOT NULL COMMENT '最后登录IP',
+  `last_ip` varchar(64) DEFAULT NULL COMMENT '最后登录IP',
   `images` varchar(64) DEFAULT NULL COMMENT '头像地址',
   `add_time` datetime DEFAULT NULL COMMENT '首次添加时间',
   `last_time` datetime DEFAULT NULL COMMENT '最后登录时间',
   `state` int(1) DEFAULT '0' COMMENT '用户状态,0为未激活，1为激活',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bz_user
 -- ----------------------------
-INSERT INTO `bz_user` VALUES ('1', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', '12345678900', '123@123.com', null, '0.0.0.0', '__PUBLIC__/index/uploads/user/20180424/ea3e4efbf2279c9ecc436c5f4', '2018-04-24 16:37:24', '2018-04-25 15:14:58', '1');
-INSERT INTO `bz_user` VALUES ('3', 'wyu', 'WyEcho', '21232f297a57a5a743894a0e4a801fc3', '18782253525', 'wyecho@wyecho.co', null, '0.0.0.0', null, '2018-04-25 10:17:27', '2018-04-25 16:39:10', '1');
+INSERT INTO `bz_user` VALUES ('1', 'admin', 'admin', null, null, '21232f297a57a5a743894a0e4a801fc3', '12345678900', '123@123.com', null, '0.0.0.0', '__PUBLIC__/index/uploads/user/20180424/ea3e4efbf2279c9ecc436c5f4', '2018-04-24 16:37:24', '2018-05-02 17:33:30', '1');
+INSERT INTO `bz_user` VALUES ('3', 'wyu', 'WyEcho', '王宇', '500243199300000000', '21232f297a57a5a743894a0e4a801fc3', '18782253525', 'wyecho@wyecho.co', null, '0.0.0.0', null, '2018-04-25 10:17:27', '2018-05-03 11:02:30', '1');
+
+-- ----------------------------
+-- Table structure for `bz_user_common`
+-- ----------------------------
+DROP TABLE IF EXISTS `bz_user_common`;
+CREATE TABLE `bz_user_common` (
+  `cid` int(3) NOT NULL AUTO_INCREMENT COMMENT '自增主键，用户信息表',
+  `uid` int(3) DEFAULT NULL,
+  `recrive_name` varchar(16) DEFAULT NULL COMMENT '真实姓名',
+  `tell` int(11) DEFAULT NULL,
+  `idcard` varchar(24) DEFAULT NULL COMMENT '身份证号码',
+  `province` int(7) DEFAULT NULL COMMENT '省市代码',
+  `city` int(7) DEFAULT NULL COMMENT '市区代码',
+  `zone` int(7) DEFAULT NULL COMMENT '乡镇代码',
+  `address` varchar(255) DEFAULT NULL COMMENT '收货地址',
+  `qq_id` varchar(255) DEFAULT NULL COMMENT 'QQ第三方登录OpenID',
+  `sina_id` varchar(255) DEFAULT NULL COMMENT '新浪第三方登录OpenId',
+  `wchat_id` varchar(255) DEFAULT NULL COMMENT '微信第三方登录OpenId',
+  PRIMARY KEY (`cid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bz_user_common
+-- ----------------------------

@@ -68,4 +68,24 @@ class userModel extends Model {
 		}
 	}
 
+	/**
+	 * 保存用户真实信息
+	 * @param  [type] $id   [description]
+	 * @param  [type] $data [description]
+	 * @return [type]       [description]
+	 */
+	public function saveRname($id,$data) {
+		$result = Db::name($this->user)
+					->where('uid='.$id)
+					->update([
+						'real_name' => $data['rname'],
+						'idcard' => $data['idcard'],
+					]);
+		if ($result) {
+			return true;
+		} else {
+			return false;
+		}		
+	}
+
 }

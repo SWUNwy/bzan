@@ -200,11 +200,22 @@ class User extends Common {
 	}
 
 	/**
-	 * 保存身份证信息
+	 * 保存用户真实身份信息
 	 * @return [type] [description]
 	 */
-	public function saveId() {
-		
+	public function saveRname() {
+		$id = input('uid');
+		$data = [
+			'rname' => input('rname'),
+			'idcard' => input('idcard'),
+		];
+		$userModel = new userModel();
+		$result = $userModel->saveRname($id,$data);
+        if ($result) {
+         	$this->success('操作成功!','User/index');
+         } else {
+         	$this->error('操作失败!','User/index');
+         }
 	}
 
 
