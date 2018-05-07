@@ -14,6 +14,7 @@ use think\Controller;
 use app\index\model\userModel;
 use app\index\controller\Common;
 use think\Request;
+use think\Db;
 /**
  * UserController
  * 用户模块
@@ -144,12 +145,30 @@ class User extends Common {
 	 */
 	public function addressList() {
 
-		$userModel = new userModel();
-		$data = $userModel->addressList();
-		var_dump($data);
-		die();
+		// $userModel = new userModel();
+		// $data = $userModel->addressList();
+		// var_dump($data);
+		// die();
+
+	    $province = Db::name('tree')->where ( array('pid'=>1) )->select ();
+	    $this->assign('province',$province);
+	    $this->display();
 
 		return $this->fetch();
+	}
+
+	// public function index(){
+	//     $province = M('Tree')->where ( array('pid'=>1) )->select ();
+	//     $this->assign('province',$province);
+	//     $this->display();
+
+	// }
+	public function getRegion(){
+	    $Region=Db::name("tree");
+	    $map['pid']=$_REQUEST["pid"];
+	    $map['type']=$_REQUEST["type"];
+	    $list=$Region->where($map)->select();
+	    echo json_encode($list);
 	}
 
 	/**

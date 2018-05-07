@@ -90,9 +90,14 @@ class userModel extends Model {
 
 
 	public function addressList() {
-		$data = Db::field('province.province_no,province.province_name,city.city_no,city.city_name,zone.zone_no,zone.zone_name')
-		->table(['bz_address_province'=>'province','bz_address_city'=>'city','bz_address_zone'=>'zone'])
-		->select();
+		// $data = Db::field('province.province_no,province.province_name,city.city_no,city.city_name')
+		// ->table(['bz_address_province'=>'province','bz_address_city'=>'city'])
+		// ->where('city.province_no' == 'province.province_no')
+		// ->select();
+		$data = Db::name('address')
+				->field('area_id,area_name,area_parent_id,area_deep')
+				->where('area_deep=2')
+				->select();
 		return $data;		
 	}
 

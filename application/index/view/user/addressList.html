@@ -144,21 +144,25 @@
                                             </div>
                                         </div>
                                         <div class="am-form-group">
+                                        
                                             <label for="user-address" class="am-form-label">所在地</label>
+                                            
                                             <div class="am-form-content address">
-                                                <select data-am-selected>
-                                                    <option value="a">浙江省</option>
-                                                    <option value="b" selected>湖北省</option>
+                                                <select data-am-selected name="province" id="province" onchange="loadRegion('province',2,'city','{:url('User/getRegion')}');">
+                                                    <option value="0" selected>省份/直辖市</option>
+                                                    {volist name="province" id="vo"}
+                                                    <option value="{$vo.id}">{$vo.name}</option>
+                                                    <!-- <option value="b" selected>湖北省</option> -->
+                                                    {/volist}
                                                 </select>
-                                                <select data-am-selected>
-                                                    <option value="a">温州市</option>
-                                                    <option value="b" selected>武汉市</option>
+                                                <select data-am-selected name="city" id="city" onchange="loadRegion('city',3,'town','{:url('User/getRegion')}');">
+                                                    <option value="0">市区</option>
                                                 </select>
-                                                <select data-am-selected>
-                                                    <option value="a">瑞安区</option>
-                                                    <option value="b" selected>洪山区</option>
+                                                <select data-am-selected name="zone" id="zone">
+                                                    <option value="0">县</option>
                                                 </select>
                                             </div>
+                                        
                                         </div>
 
                                         <div class="am-form-group">
@@ -196,6 +200,29 @@
                             }
 
                         })
+                    </script>
+
+                    <script type="text/javascript">
+                        function loadRegion(sel,type_id,selName,url){
+                            jQuery("#"+selName+" option").each(function(){
+                                jQuery(this).remove();
+                            });
+                            jQuery("<option value=0>请选择</option>").appendTo(jQuery("#"+selName));
+                            if(jQuery("#"+sel).val()==0){
+                                return;
+                            }
+                            jQuery.getJSON(url,{pid:jQuery("#"+sel).val(),type:type_id},
+                                function(data){
+                                    if(data){
+                                        jQuery.each(data,function(idx,item){
+                                            jQuery("<option value="+item.id+">"+item.name+"</option>").appendTo(jQuery("#"+selName));
+                                        });
+                                    }else{
+                                        jQuery("<option value='0'>请选择</option>").appendTo(jQuery("#"+selName));
+                                    }
+                                }
+                            );
+                        }
                     </script>
 
                     <div class="clear"></div>
