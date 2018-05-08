@@ -128,7 +128,7 @@
                                 <hr/>
 
                                 <div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                                    <form action="{:url('User/addressAdd')}" method="post" class="am-form am-form-horizontal">
+                                    <form action="" method="post" class="am-form am-form-horizontal">
 
                                         <div class="am-form-group">
                                             <label for="user-name" class="am-form-label">收货人</label>
@@ -167,7 +167,7 @@
                                         <div class="am-form-group">
                                             <label for="user-intro" class="am-form-label">详细地址</label>
                                             <div class="am-form-content">
-                                                <textarea class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
+                                                <textarea class="" rows="3" id="address" name="address" placeholder="输入详细地址"></textarea>
                                                 <small>100字以内写出你的详细地址...</small>
                                             </div>
                                         </div>
@@ -222,7 +222,18 @@
                             );
                         }
                     </script>
-
+                    <script type="text/javascript">
+                        $(":submit").click(function(){
+                            $.post("{:url('User/addressAdd')}",
+                            {
+                                name:"Donald Duck",
+                                city:"Duckburg"
+                            },
+                            function(data,status){
+                            alert("Data: " + 'success' + "\nStatus: " + status);
+                            });
+                        });
+                    </script>
                     <div class="clear"></div>
 
                 </div>

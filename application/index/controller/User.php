@@ -172,7 +172,13 @@ class User extends Common {
 	 */
 	public function addressAdd() {
 		$province = input('province');
+		$city = input('city');
+		$zone = input('zone');
+		$address = input('address');
 		var_dump($province);
+		var_dump($city);
+		var_dump($zone);
+		var_dump($address);
 	}
 
 	/**
