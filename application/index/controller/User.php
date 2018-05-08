@@ -145,30 +145,34 @@ class User extends Common {
 	 */
 	public function addressList() {
 
-		// $userModel = new userModel();
-		// $data = $userModel->addressList();
-		// var_dump($data);
-		// die();
-
-	    $province = Db::name('tree')->where ( array('pid'=>1) )->select ();
-	    $this->assign('province',$province);
+		$userModel = new userModel();
+		$data = $userModel->addressList();
+		
+	    $this->assign('data',$data);
 	    $this->display();
 
 		return $this->fetch();
 	}
 
-	// public function index(){
-	//     $province = M('Tree')->where ( array('pid'=>1) )->select ();
-	//     $this->assign('province',$province);
-	//     $this->display();
-
-	// }
+	/**
+	 * 获取数据表中地址数据
+	 * @return [type] [description]
+	 */
 	public function getRegion(){
-	    $Region=Db::name("tree");
+	    $Region=Db::name("address");
 	    $map['pid']=$_REQUEST["pid"];
 	    $map['type']=$_REQUEST["type"];
 	    $list=$Region->where($map)->select();
 	    echo json_encode($list);
+	}
+
+	/**
+	 * 新增收货地址
+	 * @return [type] [description]
+	 */
+	public function addressAdd() {
+		$province = input('province');
+		var_dump($province);
 	}
 
 	/**
@@ -243,12 +247,6 @@ class User extends Common {
          }
 	}
 
-	/**
-	 * 新增收货地址
-	 * @return [type] [description]
-	 */
-	public function addressAdd() {
 
-	}
 
 }
