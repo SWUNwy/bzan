@@ -111,7 +111,7 @@
 
                                         <div class="am-form-group">
                                             <div class="am-u-sm-9 am-u-sm-push-3">
-                                                <div class="am-btn am-btn-danger"><input type="submit" class="am-btn am-btn-danger" value="&nbsp;保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存&nbsp;"></div>
+                                                <div class="am-btn am-btn-danger"><input type="submit" class="am-btn am-btn-danger" value="&nbsp;新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增&nbsp;"></div>
                                             </div>
                                         </div>
                                     </form>
@@ -161,13 +161,13 @@
                     </script>
                     <script type="text/javascript">
                         $(":submit").click(function(){
-                            $.post("{:url('User/addressAdd')}",
+                            $.post("{:url('User/addressInfoAdd')}",
                             {
                                 name:"Donald Duck",
                                 city:"Duckburg"
                             },
                             function(data,status){
-                            alert("Data: " + 'success' + "\nStatus: " + status);
+                            alert("Data: " + 'success' + "\nStatus: " + 'status');
                             });
                         });
                     </script>

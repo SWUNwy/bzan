@@ -177,6 +177,10 @@ class User extends Common {
 	    return $this->fetch();
 	}
 
+	public function addressInfoAdd() {
+		$data = input('post.');
+		echo json_encode($data);
+	}
 
 	public function addressEdit() {
 		$userModel = new userModel();
