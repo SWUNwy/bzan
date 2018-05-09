@@ -88,12 +88,31 @@ class userModel extends Model {
 		}		
 	}
 
-
-	public function addressList() {
+	/**
+	 * 系统数据库所有地址数据
+	 * @return [type] [description]
+	 */
+	public function address() {
 		$data = Db::name('address')->where( 'pid = 1' )->select();
 		return $data;		
 	}
 
+
+	/**
+	 * 获取用户保存的地址数据信息
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function userAddressList($id) {
+		$data = Db::name('user_address')
+		            ->where('uid='.$id)
+		            ->find();
+		if ($data) {
+			return $data;
+		} else {
+			return false;
+		}
+	}
 
 	public function addressAdd() {}
 

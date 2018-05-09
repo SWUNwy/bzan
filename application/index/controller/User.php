@@ -145,12 +145,12 @@ class User extends Common {
 	 */
 	public function addressList() {
 
-		$userModel = new userModel();
-		$data = $userModel->addressList();
-		
-	    $this->assign('data',$data);
-	    $this->display();
+		$uid = session('uid');
 
+		$userModel = new userModel();
+		$data = $userModel->address();
+		$addList = $userModel->userAddressList($uid);
+	    $this->assign('data',$data);
 		return $this->fetch();
 	}
 
@@ -171,14 +171,18 @@ class User extends Common {
 	 * @return [type] [description]
 	 */
 	public function addressAdd() {
-		$province = input('province');
-		$city = input('city');
-		$zone = input('zone');
-		$address = input('address');
-		var_dump($province);
-		var_dump($city);
-		var_dump($zone);
-		var_dump($address);
+		$userModel = new userModel();
+		$data = $userModel->address();
+	    $this->assign('data',$data);
+	    return $this->fetch();
+	}
+
+
+	public function addressEdit() {
+		$userModel = new userModel();
+		$data = $userModel->address();
+	    $this->assign('data',$data);
+		return $this->fetch();
 	}
 
 	/**
