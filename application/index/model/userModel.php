@@ -114,6 +114,13 @@ class userModel extends Model {
 		}
 	}
 
-	public function addressAdd() {}
+	/**
+	 * 用户新增收货地址
+	 * @param  [type] $data [description]
+	 * @return [type]       [description]
+	 */
+	public function addressInfoAdd($data) {
+		return $data;
+	}
 
 }

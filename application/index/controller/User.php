@@ -177,13 +177,19 @@ class User extends Common {
 	    return $this->fetch();
 	}
 
-	public function addressInfoAdd($data) {
-		$data = input('post.');
-		if ($data) {
-			return json($data);
-		} else {
-			return json("error");
-		}
+	public function addressInfoAdd() {
+		$data = [
+			'uid'		   => session('uid'),
+			'reserve_name' => input('user_name'),
+			'phone' 	   => input('user_phone'),
+			'user_idcard'  => input('user_idcard'),
+			'province'	   => input('province'),
+			'city'		   => input('city'),
+			'zone'		   => input('zone'),
+		];
+		$userModel = new UserModel();
+		$result = $userModel->addressInfoAdd($data);
+
 	}
 
 	public function addressEdit() {
