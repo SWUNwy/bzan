@@ -177,9 +177,13 @@ class User extends Common {
 	    return $this->fetch();
 	}
 
-	public function addressInfoAdd() {
+	public function addressInfoAdd($data) {
 		$data = input('post.');
-		echo json_encode($data);
+		if ($data) {
+			return json($data);
+		} else {
+			return json("error");
+		}
 	}
 
 	public function addressEdit() {
