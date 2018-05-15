@@ -178,17 +178,19 @@ class User extends Common {
 	}
 
 	public function addressInfoAdd() {
-		$data = [
-			'uid'		   => session('uid'),
-			'reserve_name' => input('user_name'),
-			'phone' 	   => input('user_phone'),
-			'user_idcard'  => input('user_idcard'),
-			'province'	   => input('province'),
-			'city'		   => input('city'),
-			'zone'		   => input('zone'),
-		];
-		$userModel = new UserModel();
-		$result = $userModel->addressInfoAdd($data);
+		$data = input('post.');
+		echo json_encode("ajax成功!");
+		// $data = [
+		// 	'uid'		   => session('uid'),
+		// 	'reserve_name' => input('user_name'),
+		// 	'phone' 	   => input('user_phone'),
+		// 	'user_idcard'  => input('user_idcard'),
+		// 	'province'	   => input('province'),
+		// 	'city'		   => input('city'),
+		// 	'zone'		   => input('zone'),
+		// ];
+		// $userModel = new UserModel();
+		// $result = $userModel->addressInfoAdd($data);
 
 	}
 

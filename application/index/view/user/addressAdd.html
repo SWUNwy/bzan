@@ -58,7 +58,7 @@
                                 <hr/>
 
                                 <div id="form" class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                                    <form action="{:url('User/addressInfoAdd')}" method="post" class="am-form am-form-horizontal">
+                                    <form  method="post" class="am-form am-form-horizontal">
 
                                         <div class="am-form-group">
                                             <label for="user-name" class="am-form-label">收货人</label>
@@ -111,7 +111,7 @@
 
                                         <div class="am-form-group">
                                             <div class="am-u-sm-9 am-u-sm-push-3">
-                                                <div class="am-btn am-btn-danger"><button type="submit" class="am-btn am-btn-danger">&nbsp;新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增&nbsp;</button></div>
+                                                <div class="am-btn am-btn-danger"><button onclick="address_add()" href="javascript:;" type="submit" class="am-btn am-btn-danger">&nbsp;新&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;增&nbsp;</button></div>
                                             </div>
                                         </div>
                                     </form>
@@ -159,37 +159,26 @@
                             );
                         }
                     </script>
-<!--                     <script type="text/javascript">
-                        $(".submit").click(function(){
+                    <script type="text/javascript">
+                    function address_add() {
+                        // $(".submit").click(function(){
                             $.ajax({
                                 type:"post",
                                 url:"{:url('User/addressInfoAdd')}",
+                                contentType:'application/json;charset=utf-8',
                                 dataType: "json",
                                 data:{
-                                    name:$('#user_name').val(),
-                                    user_id:$('#user_id').val()
+                                    "name":$('#user_name').val(),
+                                    "user_id":$('#user_id').val()
                                 },
-                                success:function($data){
-                                    alert($data);
+                                success:function(data){
+                                    alert(data);
                                 }
                             });
-                        });
-                    </script> -->
-<!--                     
-                    <script type="text/javascript">
-                    $(document).ready(function(){
-                        $('button[type=submit]').click(function(){
-                            var user_id = $('user_id').val();
-                            if(user_id === '' && user_id == null){
-                                alert("请填写身份证号码");
-                                return false;
-                            }else if(!(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(user_id))){
-                                alert("身份证格式不正确");
-                                return false;
-                            }                            
-                        });
-                    });
-                    </script> -->
+                        // });
+                    }
+                    </script>
+
                     <div class="clear"></div>
 
                 </div>
