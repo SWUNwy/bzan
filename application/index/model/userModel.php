@@ -120,7 +120,22 @@ class userModel extends Model {
 	 * @return [type]       [description]
 	 */
 	public function addressInfoAdd($data) {
-		return $data;
+		// $province_id = $data['province_id'];
+		// $city_id = $data['city_id'];
+		// $zone_id = $data['zone_id'];
+		// $province = Db::name('address')->where('id='.$province_id)->value('name');
+		// $city = Db::name('address')->where('id='.$city_id)->value('name');
+		// $zone = Db::name('address')->where('id='.$zone_id)->value('name');
+		// $data['province'] = $province;
+		// $data['city'] = $city;
+		// $data['zone'] = $zone;
+		$result = Db::name('user_address')->insert($data);
+		if ($result) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 }

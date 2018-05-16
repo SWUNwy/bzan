@@ -182,23 +182,54 @@ class User extends Common {
 	 * @return [type] [description]
 	 */
 	public function addressInfoAdd() {
+		$province_id = input('post.province');
+		$city_id = input('post.city');
+		$zone_id = input('post.zone');
+		$province = Db::name('address')->where('id='.$province_id)->value('name');
+		$city = Db::name('address')->where('id='.$city_id)->value('name');
+		$zone = Db::name('address')->where('id='.$zone_id)->value('name');
 		
 		$data = [
 			'uid'		   => session('uid'),
-			'reserve_name' => input('post.user_name'),
-			'phone' 	   => input('post.user_phone'),
-			'idcard'	   => input('post.user_idcard'),
+			'recrive_name' => input('post.user_name'),
+			'tell' 		   => input('post.user_phone'),
+			'idcard'	   => input('post.user_id'),
 			'province_id'  => input('post.province'),
+			'province'	   => $province,
 			'city_id'	   => input('post.city'),
+			'city'		   => $city,
 			'zone_id'	   => input('post.zone'),
+			'zone'		   => $zone,
 			'address'	   => input('post.address'),
+			'add_time'	   => date('Y-m-d H:i:s'),
 		];
+		// $province_id = input('province');
+		// $city_id = input('city');
+		// $zone_id = input('zone');
+		// $province = Db::name('address')->where('id='.$province_id)->value('name');
+		// $city = Db::name('address')->where('id='.$city_id)->value('name');
+		// $zone = Db::name('address')->where('id='.$zone_id)->value('name');
+		
+		// $data = [
+		// 	'uid'		   => session('uid'),
+		// 	'recrive_name' => input('user_name'),
+		// 	'tell' 		   => input('user_phone'),
+		// 	'idcard'	   => input('user_id'),
+		// 	'province_id'  => input('province'),
+		// 	'province'	   => $province,
+		// 	'city_id'	   => input('city'),
+		// 	'city'		   => $city,
+		// 	'zone_id'	   => input('zone'),
+		// 	'zone'		   => $zone,
+		// 	'address'	   => input('address'),
+		// 	'add_time'	   => date('Y-m-d H:i:s'),
+		// ];
 		$userModel = new UserModel();
 		$result = $userModel->addressInfoAdd($data);
 		if ($result) {
 			return json(['status'=>200,'info'=>'添加成功!']);
 		} else {
-			return json(['status'=>203,'info'=>'添加失败!']);
+			return json(['status'=>500,'info'=>'添加失败!']);
 		}
 
 	}

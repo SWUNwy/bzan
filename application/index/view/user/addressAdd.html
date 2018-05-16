@@ -58,7 +58,7 @@
                                 <hr/>
 
                                 <div id="form" class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-                                    <form  method="post" class="am-form am-form-horizontal">
+                                    <form method="post" class="am-form am-form-horizontal">
 
                                         <div class="am-form-group">
                                             <label for="user-name" class="am-form-label">收货人</label>
@@ -186,7 +186,7 @@
                                 success:function(data){
                                     if (data.status == 200) {
                                         alert(data.info);
-                                    } else if(data.status == 203) {
+                                    } else if(data.status == 500) {
                                         alert(data.info);
                                         return false;
                                     }
