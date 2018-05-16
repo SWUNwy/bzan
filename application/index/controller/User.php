@@ -177,20 +177,29 @@ class User extends Common {
 	    return $this->fetch();
 	}
 
+	/**
+	 * 用户新增收货地址
+	 * @return [type] [description]
+	 */
 	public function addressInfoAdd() {
-		$data = input('post.');
-		echo json_encode("ajax成功!");
-		// $data = [
-		// 	'uid'		   => session('uid'),
-		// 	'reserve_name' => input('user_name'),
-		// 	'phone' 	   => input('user_phone'),
-		// 	'user_idcard'  => input('user_idcard'),
-		// 	'province'	   => input('province'),
-		// 	'city'		   => input('city'),
-		// 	'zone'		   => input('zone'),
-		// ];
-		// $userModel = new UserModel();
-		// $result = $userModel->addressInfoAdd($data);
+		
+		$data = [
+			'uid'		   => session('uid'),
+			'reserve_name' => input('post.user_name'),
+			'phone' 	   => input('post.user_phone'),
+			'idcard'	   => input('post.user_idcard'),
+			'province_id'  => input('post.province'),
+			'city_id'	   => input('post.city'),
+			'zone_id'	   => input('post.zone'),
+			'address'	   => input('post.address'),
+		];
+		$userModel = new UserModel();
+		$result = $userModel->addressInfoAdd($data);
+		if ($result) {
+			return json(['status'=>200,'info'=>'添加成功!']);
+		} else {
+			return json(['status'=>203,'info'=>'添加失败!']);
+		}
 
 	}
 
