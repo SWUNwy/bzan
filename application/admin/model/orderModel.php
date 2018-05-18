@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: wyecho <@sina.com>
 // +----------------------------------------------------------------------
-namespace app\admn\model;
+namespace app\admin\model;
 
 use think\Model;
 use think\Db;
@@ -21,5 +21,14 @@ use think\Db;
 class orderModel extends Model {
 	
 	protected $order = 'order';
+
+	/**
+	 * 系统订单数据列表
+	 * @return [type] [description]
+	 */
+	public function orderList() {
+		$data = Db::name($this->order)->select();
+		return $data;
+	}
 
 }

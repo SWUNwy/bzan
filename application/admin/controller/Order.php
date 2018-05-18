@@ -11,10 +11,16 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use app\admin\model\orderModel;
 
 class Order extends Controller {
 
 	public function index() {
+		$orderModel = new orderModel();
+		$orderList = $orderModel->orderList();
+		var_dump($orderList);
+		die();
+		$this->assign('orderList',$orderList);
 		return $this->fetch();
 	}
 
