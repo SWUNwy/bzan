@@ -18,11 +18,16 @@ class Order extends Controller {
 		return $this->fetch();
 	}
 
-	public function order_info() {
+
+	public function orderInfo() {
 		return $this->fetch();
 	}
 
-	public function order_handling() {
+	public function orderHandling() {
+		return $this->fetch();
+	}
+
+	public function orderDetail() {
 		return $this->fetch();
 	}
 
